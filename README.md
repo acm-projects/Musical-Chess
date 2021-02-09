@@ -1,7 +1,7 @@
 # Musical-Chess
 *Chess is beautiful. Chess is art. This app converts chess games into music. Intelligent moves create pleasing chord progressions and melodies, while mistakes and blunders create atonal, unpleasant sound.*
 
-> Hey coders! Nothing in this ReadMe is set in stone. You are welcome and encouraged to do your own research and suggest changes to your team. We will be reviewing/adjusting MVP/Stretch goals on Design Day.
+> Participants! The ReadMe is not set in stone. You are welcome and encouraged to do your own research. We will be reviewing/adjusting MVP/Stretch goals on Design Day.
 
 ## Minimum Viable Product (MVP)
 * Send and receive chess data from a game analysis engine
@@ -22,10 +22,10 @@
 * Animation/music synchronization (all)
 
 ## Installations / Resources
-* [https://tonejs.github.io/](Tone.js)
-* [https://ucichessengine.wordpress.com/description/](Chess UCI (Universal Chess Interface))
-* [https://reactjs.org/](ReactJS) or [https://angularjs.org/](AngularJS)
-* [https://www.python.org/downloads/](Python) or [https://www.java.com/en/](Oracle)
-* [https://git-scm.com/](Git)
-  * [https://education.github.com/git-cheat-sheet-education.pdf](Cheatsheet)
-* [https://www.oracle.com/index.html](Oracle) (maybe) or another database
+* [Tone.js](https://tonejs.github.io/)
+* [Chess UCI (Universal Chess Interface)](https://ucichessengine.wordpress.com/description/)
+* [ReactJS](https://reactjs.org/) or [AngularJS](https://angularjs.org/)
+* [Python](https://www.python.org/downloads/) or [Oracle](https://www.java.com/en/)
+* [Git](https://git-scm.com/)
+  * [Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+* [Oracle](https://www.oracle.com/index.html) (maybe)
