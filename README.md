@@ -36,25 +36,9 @@ This app accepts chess games (via pgn or fen files or through a Lichess / chess.
 * Generate music and/or chord progressions based on moves made
 * Game animation displays in sync with music
 
-## Stretch
-* Savable sound files
-* Calibration settings (mode/key/time signature/instrument(s)/etc)
-* Game links accepted instead of files
-* Live interactive chess GUI
-* Browse examples/famous games
-* Switch for white/black/both
-
-## Milestones
-* Organize team into frontend/backend and assign general roles
-* Frontend wireframes the website
-* Backend connects to game analysis engine via Universal Chess Interface (UCI) to get centipawn loss scores
-* Backend selects the instrumentation and develops a music generation algorithm
-* Frontend designs a game animation to play in sync with the music (can use an existing GUI like [Arena Chess](http://www.playwitharena.de/) or [Scid](http://scid.sourceforge.net/))
-* Connect and synchronize!
-
 ## Installations / Resources
 ### Frontend
-* [ReactJS](https://reactjs.org/) or [AngularJS](https://angularjs.org/)
+* [ReactJS](https://reactjs.org/)
   * Either is fine to use. React requires extra libraries to do lots of things, but it is much more beginner-friendly.
 * [Tone.js](https://tonejs.github.io/)
   * This is a framework for sound generation built on Web Audio API
