@@ -1,6 +1,31 @@
 # Musical-Chess
 *Compose masterful musical melodies online using data from your best chess matches.*
 
+---------------
+
+# Design Day
+- Live gameplay with music generation
+- Game submission
+- Situation music (based on one board position rather than entire game)
+- Major/minor moves based on chess engine output
+
+## Design Day MVP
+1. Upload completed games (pgn)
+2. Connect to chess engine to evaluate board positions
+3. Music algorithm
+4. Users select instruments
+5. Chess board displays moves in sync with music
+
+## Design Day Stretch Goals
+1. Download sound files
+2. Live Chess moves
+3. Pull games from a chess.com / Lichess account
+4. Tactics like fork / pin will change music
+
+## Music Generation ideas
+
+----------------
+
 This app accepts chess games (via pgn or fen files or through a Lichess / chess.com link) and composes music based on the moves. Intelligent moves create pleasing chord progressions and melodies, while mistakes and blunders create atonal, unpleasant sound. Alternatively, music generation could be based on piece type moved and location/distance.
 
 > The ReadMe is not set in stone! We will be reviewing/adjusting MVP/Stretch goals on Design Day. You are also welcome and encouraged to do your own research at any time.
