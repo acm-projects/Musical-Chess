@@ -30,12 +30,6 @@ This app accepts chess games (via pgn or fen files or through a Lichess / chess.
 
 > The ReadMe is not set in stone! We will be reviewing/adjusting MVP/Stretch goals on Design Day. You are also welcome and encouraged to do your own research at any time.
 
-## Minimum Viable Product (MVP)
-* Accept user input in form of PGN or FEN files
-* Evaluate board positions using an external game analysis engine
-* Generate music and/or chord progressions based on moves made
-* Game animation displays in sync with music
-
 ## Installations / Resources
 ### Frontend
 * [ReactJS](https://reactjs.org/)
