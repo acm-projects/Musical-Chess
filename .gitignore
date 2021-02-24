@@ -1,0 +1,6 @@
+.Python
+/misc-testing-scripting/chessapi_test/venv/**
+**venv/
+.idea/
+/misc-testing-scripting/chessapi_test/__pycache__/**
+/misc-testing-scripting/chessapi_test/stockfish_13_win_x64_avx2.exe
