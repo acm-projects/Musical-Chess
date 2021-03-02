@@ -26,9 +26,4 @@ for move in game.mainline_moves():  # this prints a board for every position in 
 print(board)
 info = engine.analyse(board, chess.engine.Limit(depth=10))
 print(info['score'])
-app = Flask(__name__)
 
-
-@app.route('/')
-def do_thing():
-    return render_template('test.html', boards=boards)
