@@ -42,7 +42,7 @@ for move in game.mainline_moves():
     if board.is_check() :
         check+=1
 
-print(check)
+print(f"{check} checks")
 # prints final position, and the score at the end
 print(board)
 print(pgn_store[(int(game_Num) - 1) * 2 + 1])
