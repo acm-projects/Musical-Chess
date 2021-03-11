@@ -39,8 +39,8 @@ check = 0
 # this prints a board for every position in the game.
 for move in game.mainline_moves():  
     board.push(move)
-    if board.is_check() :
-        check+=1
+    if board.is_check():
+        check += 1
 
 print(f"{check} checks")
 # prints final position, and the score at the end
