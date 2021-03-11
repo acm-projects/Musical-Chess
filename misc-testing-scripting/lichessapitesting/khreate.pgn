@@ -1,0 +1,400 @@
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/RTIh3zhy"]
+[Date "2021.02.03"]
+[White "tylerspizz"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.02.03"]
+[UTCTime "20:56:24"]
+[WhiteElo "1167"]
+[BlackElo "1181"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-6"]
+[Variant "Standard"]
+[TimeControl "180+0"]
+[ECO "C26"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nc3 Nf6 3. f4 d6 4. fxe5 dxe5 5. Bc4 Be6 6. Bb3 Bxb3 7. axb3 Bc5 8. Nf3 Bd4 9. Nxd4 exd4 10. Nd5 Nxd5 11. exd5 Qxd5 12. O-O O-O 13. Qg4 f5 14. Qg3 Nc6 15. d3 Ne5 16. Bh6 f4 17. Qxg7# 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/magrk9fn"]
+[Date "2021.01.31"]
+[White "Khreate"]
+[Black "skjulee"]
+[Result "0-1"]
+[UTCDate "2021.01.31"]
+[UTCTime "00:04:09"]
+[WhiteElo "1188"]
+[BlackElo "1157"]
+[WhiteRatingDiff "-7"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C45"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nxd4 5. Qxd4 Nf6 6. e5 Ng8 7. h4 d6 8. Bg5 Be7 9. Bb5+ Bd7 10. a4 Bxb5 11. axb5 Bxg5 12. Rxa7 Rxa7 13. Qxa7 Be7 14. exd6 Bxd6 15. Qxb7 Bb4+ 16. c3 Bd6 17. O-O Nf6 18. Re1+ Be7 19. Qc6+ Qd7 20. Qa8+ Qd8 21. Qc6+ Qd7 22. Qa8+ Qd8 23. Qa4 O-O 24. Nd2 Qxd2 25. Kf1 Qd3+ 26. Re2 Qb1+ 27. Re1 Qxb2 28. Qa7 Qxc3 29. Rxe7 Re8 30. Rxc7 Re1# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/2S5w5aWI"]
+[Date "2021.01.27"]
+[White "Khreate"]
+[Black "RNA02002"]
+[Result "0-1"]
+[UTCDate "2021.01.27"]
+[UTCTime "20:20:56"]
+[WhiteElo "1192"]
+[BlackElo "1308"]
+[WhiteRatingDiff "-4"]
+[BlackRatingDiff "+4"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "A06"]
+[Termination "Normal"]
+
+1. e4 d5 2. Nf3 Nc6 3. exd5 Qxd5 4. Nc3 Qe6+ 5. Be2 Bd7 6. O-O O-O-O 7. Bc4 Qg6 8. Nh4 Qg5 9. d4 Qxh4 10. g3 Qf6 11. d5 Ne5 12. b3 Nxc4 13. bxc4 c6 14. Bb2 cxd5 15. Nxd5 Qe6 16. Re1 Qc6 17. Qf3 h5 18. h4 Be6 19. Red1 Bxd5 20. cxd5 Rxd5 21. Rxd5 Qxc2 22. Rd3 Nf6 23. Qf5+ e6 24. Rd8+ Kxd8 25. Qxc2 Rh6 26. Rd1+ Nd5 27. Qc4 Be7 28. Qa4 Rg6 29. Qxa7 Bxh4 30. Qb8+ Ke7 31. Qxb7+ Ke8 32. Qc8+ Ke7 33. Qc5+ Ke8 34. Rc1 Bxg3 35. Qc8+ Ke7 36. Qc5+ Ke8 37. Qa7 Bb8+ 38. Kf1 Bxa7 39. Rc8+ Ke7 40. Ra8 Bb6 41. Rb8 f6 42. Rb7+ Kf8 43. Rb8+ Kf7 44. Rb7+ Ke8 45. Rb8+ Kd7 46. Rb7+ Kc8 47. Rf7 Nf4 48. Rf8+ Kd7 49. Rf7+ Ke8 50. Rb7 Bd8 51. Rb8 Nd3 52. Bc3 h4 53. a4 h3 54. Rb1 Nf4 55. Ke1 h2 56. Kd2 Rg1 57. Ke3 h1=Q 58. Kxf4 g6 59. Rxg1 Qxg1 60. f3 Bc7+ 61. Be5 Bxe5+ 62. Ke4 Qd4# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/QwVV2bJS"]
+[Date "2021.01.27"]
+[White "polisombra"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.01.27"]
+[UTCTime "20:19:15"]
+[WhiteElo "1136"]
+[BlackElo "1198"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C42"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. Bc4 d5 4. exd5 Nxd5 5. Nxe5 Qd7 6. Nxd7 Bxd7 7. Qe2+ Kd8 8. Bxd5 Bb4 9. Bxb7 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/B4fNickT"]
+[Date "2021.01.27"]
+[White "danielrpotvin"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.01.27"]
+[UTCTime "20:14:40"]
+[WhiteElo "1201"]
+[BlackElo "1204"]
+[WhiteRatingDiff "+10"]
+[BlackRatingDiff "-6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C48"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bb5 d5 5. Nxd5 Nxd5 6. exd5 a6 7. Bxc6+ bxc6 8. dxc6 Bc5 9. Nxe5 Qh4 10. Qf3 Bg4 11. Qxf7+ Kd8 12. g3 Qf6 13. Qxf6+ gxf6 14. Nd3 Bf3 15. O-O Be2 16. Re1 Bg4 17. Nxc5 Re8 18. Nb7+ Kc8 19. Rxe8# 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/bNfjChp3"]
+[Date "2021.01.26"]
+[White "Ashish_Vaibhav"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.01.26"]
+[UTCTime "21:01:18"]
+[WhiteElo "1235"]
+[BlackElo "1210"]
+[WhiteRatingDiff "+5"]
+[BlackRatingDiff "-6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C50"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Qe7 4. Nc3 Nf6 5. d3 Qc5 6. Be3 Qxc4 7. dxc4 Bb4 8. a3 Bxc3+ 9. bxc3 Nxe4 10. Bd2 O-O 11. Qe2 Nf6 12. Nxe5 Nxe5 13. Qxe5 Re8 14. Qxe8+ Nxe8 15. O-O d6 16. Rfe1 Be6 17. Re3 Bxc4 18. Rg3 g6 19. Re1 Bd5 20. Rge3 Bc6 21. h3 f5 22. Rg3 Nf6 23. Re6 Nh5 24. Rge3 Ng7 25. Re7 Ne8 26. c4 b5 27. cxb5 Bxb5 28. Bc3 Ng7 29. Rxg7+ Kf8 30. Rge7 Re8 31. Bg7+ Kg8 32. Rxe8+ Bxe8 33. Rxe8+ Kf7 34. Re7+ Kxe7 35. Bd4 Ke6 36. c3 Kd5 37. Kf1 c5 38. Bf6 Kc4 39. Ke2 d5 40. Be5 Kb3 41. Bb8 Kxc3 42. Bxa7 d4 43. Bxc5 d3+ 44. Kd1 Kc4 45. Bb4 Kb3 46. Kd2 Kc4 47. f4 h6 48. Ke3 g5 49. fxg5 hxg5 50. Kf3 Kb3 51. Ke3 Kc2 52. Kd4 d2 53. Bxd2 Kxd2 54. a4 f4 55. a5 Ke2 56. a6 Kf2 57. a7 Kxg2 58. a8=Q+ f3 59. Qa2+ Kg3 60. Ke3 g4 61. Qf2+ Kxh3 62. Kf4 g3 63. Qxg3# 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/QRnkFbPy"]
+[Date "2021.01.24"]
+[White "Khreate"]
+[Black "brammelam"]
+[Result "0-1"]
+[UTCDate "2021.01.24"]
+[UTCTime "20:32:03"]
+[WhiteElo "1215"]
+[BlackElo "1221"]
+[WhiteRatingDiff "-5"]
+[BlackRatingDiff "+5"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C41"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. d4 d6 4. Nc3 Bg4 5. d5 Nbd7 6. Bg5 Be7 7. h3 Bh5 8. g4 Bg6 9. Bb5 Bxe4 10. Nxe4 Nxe4 11. Qd3 Bxg5 12. Nxg5 Nxg5 13. O-O e4 14. Qe3 Qf6 15. Qc3 Nf3+ 16. Kg2 Qf4 17. Qxg7 Qh2# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/D5Qjka9I"]
+[Date "2021.01.24"]
+[White "Khreate"]
+[Black "Smilkyway"]
+[Result "1-0"]
+[UTCDate "2021.01.24"]
+[UTCTime "00:59:25"]
+[WhiteElo "1209"]
+[BlackElo "1210"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-5"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "A06"]
+[Termination "Normal"]
+
+1. e4 d5 2. Nf3 dxe4 3. Nd4 e5 4. Nb5 c6 5. N5c3 Bf5 6. f3 exf3 7. Qxf3 Ne7 8. Bc4 b5 9. Bb3 b4 10. Ne4 Qd4 11. d3 g6 12. Nf6+ Kd8 13. Be3 Qxb2 14. O-O Qxa1 15. Nd2 Qc3 16. Bxf7 Qxc2 17. d4 e4 18. Qf4 Nd7 19. Nxd7 Bxd7 20. Nxe4 Nd5 21. Qe5 Nxe3 22. Qxh8 Nxf1 23. Qxf8+ Kc7 24. Qd6+ Kb6 25. Qc5+ Ka6 26. Bc4+ Kb7 27. Qxb4+ Kc7 28. Qd6+ Kb6 29. Qc5+ Kb7 30. Nd6+ Kc7 31. Qa5+ Kxd6 32. Qc5+ Kc7 33. Qa5+ Kc8 34. Qa6+ Kd8 35. Qa5+ Ke8 36. Qe5+ Kd8 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/N9gbwquT"]
+[Date "2021.01.24"]
+[White "Khreate"]
+[Black "Razlabarak"]
+[Result "1-0"]
+[UTCDate "2021.01.24"]
+[UTCTime "00:49:06"]
+[WhiteElo "1203"]
+[BlackElo "1209"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-5"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C45"]
+[Termination "Time forfeit"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Be3 Qf6 6. c3 Nge7 7. Nxc6 Qxc6 8. Bxc5 d6 9. Bd4 Qxe4+ 10. Qe2 d5 11. Bxg7 Rg8 12. Nd2 Qxe2+ 13. Bxe2 Rxg7 14. c4 d4 15. Bf3 c6 16. Ne4 Bf5 17. Nd6+ Kd7 18. Nxb7 Kc7 19. Nc5 Rd8 20. O-O-O d3 21. Rxd3 Bxd3 22. Nxd3 Rxd3 23. Re1 Nf5 24. Re5 Nd4 25. Be2 Nxe2+ 26. Kc2 Rd8 27. Re7+ Rd7 28. Rxe2 Rxg2 29. b4 Rxh2 30. Kb3 Rh3+ 31. Ka4 Rh1 32. b5 cxb5+ 33. cxb5 Ra1 34. Kb4 Kb6 35. Re4 Rb1+ 36. Ka4 Rd3 37. Rb4 Ra1 38. Rb2 Rd4+ 39. Ka3 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/O5culevt"]
+[Date "2021.01.23"]
+[White "Mthnefe"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.01.23"]
+[UTCTime "21:10:42"]
+[WhiteElo "1219"]
+[BlackElo "1209"]
+[WhiteRatingDiff "+6"]
+[BlackRatingDiff "-6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C47"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nc3 Nf6 3. Nf3 Nc6 4. d4 d6 5. d5 Nb4 6. Bb5+ c6 7. Ba4 b5 8. Nxb5 cxb5 9. Bxb5+ Bd7 10. Bc4 Nxe4 11. c3 Na6 12. Bxa6 Qb6 13. Qd3 Nxf2 14. Qe2 Nxh1 15. Be3 Qc7 16. O-O-O Be7 17. Rxh1 O-O 18. h4 Bg4 19. h5 e4 20. h6 exf3 21. gxf3 Qa5 22. fxg4 Qxd5 23. Rd1 Qe4 24. Bd3 Qa4 25. b3 Qc6 26. hxg7 Kxg7 27. Bd4+ Bf6 28. g5 d5 29. Bxf6+ Kg8 30. Qh5 Qxc3+ 31. Bc2 Qe3+ 32. Rd2 Qe1+ 33. Rd1 Qe3+ 34. Kb1 Qf4 35. Bxh7# 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/QGpzViBV"]
+[Date "2021.01.22"]
+[White "kiyokiyokiyo"]
+[Black "Khreate"]
+[Result "0-1"]
+[UTCDate "2021.01.22"]
+[UTCTime "07:47:38"]
+[WhiteElo "1199"]
+[BlackElo "1203"]
+[WhiteRatingDiff "-6"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C42"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Bc5 4. Nxe5 Nc6 5. d4 Bxd4 6. Nf3 O-O 7. Nxd4 Ng4 8. Qxg4 Nxd4 9. e5 Nxc2+ 10. Kd1 Nxa1 11. Bh6 g6 12. h4 d6 13. Qg3 dxe5+ 14. Kc1 Bf5 15. Bc4 Qd4 16. b3 Nc2 17. h5 Na3 18. hxg6 hxg6 19. Be3 Qxc3+ 20. Kd1 Qc2+ 21. Ke1 Qb1+ 22. Ke2 Qxh1 23. Qxe5 Rae8 24. Qf6 Qh5+ 25. Ke1 Nc2+ 26. Kd2 Rd8+ 27. Kc3 Qd1 28. Bc5 Rd3+ 29. Kb2 Qa1+ 30. Kxc2 Qxf6 31. Bxf8 Qc3+ 32. Kb1 Rd1# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/KjQYs9xx"]
+[Date "2021.01.22"]
+[White "Khreate"]
+[Black "lovesausage"]
+[Result "0-1"]
+[UTCDate "2021.01.22"]
+[UTCTime "07:38:45"]
+[WhiteElo "1208"]
+[BlackElo "1272"]
+[WhiteRatingDiff "-5"]
+[BlackRatingDiff "+5"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C41"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 d6 3. c3 Bg4 4. d4 Bxf3 5. Qxf3 f6 6. Bb5+ c6 7. Bc4 b5 8. Bb3 Ne7 9. d5 g6 10. O-O Bg7 11. Rd1 h5 12. h4 cxd5 13. Bxd5 Nbc6 14. c4 bxc4 15. Bxc4 Nd4 16. Qa3 Nc2 17. Qa4+ Kf8 18. Qxc2 Rc8 19. Be3 d5 20. exd5 Nxd5 21. Rxd5 Qxd5 22. Nc3 Qxc4 23. Qxg6 Rh6 24. Qc2 Qe6 25. Qa4 Rh7 26. Nb5 a6 27. Na7 Rc4 28. Qb3 Bh8 29. Bc5+ Kg8 30. Nc8 Qd5 31. Ne7+ Rxe7 32. Bxe7 f5 33. Qb8+ Kh7 34. Qf8 Rc7 35. Qxf5+ Kg8 36. Qf8+ Kh7 37. Qf7+ Qxf7 38. Bg5 Rc2 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/pLnib1Na"]
+[Date "2021.01.22"]
+[White "Khreate"]
+[Black "nader59bsh"]
+[Result "0-1"]
+[UTCDate "2021.01.22"]
+[UTCTime "01:38:24"]
+[WhiteElo "1213"]
+[BlackElo "1231"]
+[WhiteRatingDiff "-5"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "B06"]
+[Termination "Normal"]
+
+1. e4 g6 2. Nf3 Bg7 3. Nc3 e6 4. d4 h6 5. e5 b6 6. g4 Bb7 7. d5 Ne7 8. Bg2 exd5 9. g5 O-O 10. Bf4 h5 11. Nb5 a6 12. Nbd4 Nbc6 13. Nxc6 Nxc6 14. Qxd5 Na5 15. Qd4 c5 16. Qd6 Nc4 17. Qd3 Nxb2 18. Qb3 Na4 19. Qxa4 b5 20. Qb3 c4 21. Qe3 Qa5+ 22. Qd2 Qxd2+ 23. Bxd2 Rfe8 24. O-O Bxe5 25. Rfe1 Bxa1 26. Rxa1 Re2 27. Nd4 Rxd2 28. Bxb7 Rb8 29. c3 Rxb7 30. f4 b4 31. cxb4 Rxd4 32. Rb1 Rxf4 33. Rc1 Rg4+ 34. Kh1 Rxg5 35. Rxc4 a5 36. bxa5 Rb1+ 37. Rc1 Rxc1# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/CjXt1L3T"]
+[Date "2021.01.21"]
+[White "jpost62"]
+[Black "Khreate"]
+[Result "0-1"]
+[UTCDate "2021.01.21"]
+[UTCTime "21:09:34"]
+[WhiteElo "1247"]
+[BlackElo "1207"]
+[WhiteRatingDiff "-7"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C43"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. d4 exd4 4. Nxd4 Nxe4 5. Bc4 Qh4 6. O-O Bc5 7. Re1 Qxf2+ 8. Kh1 Bxd4 9. Rxe4+ Kd8 10. Rxd4 Nc6 11. Rd2 Qf4 12. Rf2 Qxf2 13. Bg5+ f6 14. Bd2 d6 15. Nc3 Bf5 16. Nd5 Be4 17. Qg1 Qxd2 18. Rd1 Qxc2 19. Bb3 Qxb2 20. Re1 Qe5 21. Bc2 Qxd5 22. Bxe4 Qxa2 23. Qe3 Kd7 24. Bxc6+ bxc6 25. Qe7+ Kc8 26. Qe6+ Qxe6 27. Rxe6 Rb8 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/WuZpOClY"]
+[Date "2021.01.21"]
+[White "Khreate"]
+[Black "Saulns"]
+[Result "1-0"]
+[UTCDate "2021.01.21"]
+[UTCTime "18:29:32"]
+[WhiteElo "1203"]
+[BlackElo "1117"]
+[WhiteRatingDiff "+4"]
+[BlackRatingDiff "-4"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C45"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. c3 d6 6. b4 Bxd4 7. cxd4 Nf6 8. b5 Na5 9. Bg5 h6 10. Bh4 g5 11. Bg3 Nxe4 12. Be2 Qf6 13. O-O h5 14. Bxh5 Rxh5 15. Qxh5 Nxg3 16. Qd1 Nxf1 17. Qxf1 Qxd4 18. Qe1+ Be6 19. Nd2 O-O-O 20. Nf3 Qa4 21. Nxg5 Bxa2 22. Nxf7 Rf8 23. Qe7 Rg8 24. Nh6 Nb3 25. Re1 Rd8 26. Nf7 b6 27. Qxd8+ Kb7 28. Nxd6+ cxd6 29. Re7# 1-0
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/svbNt3w4"]
+[Date "2021.01.21"]
+[White "Balance_Breaker"]
+[Black "Khreate"]
+[Result "0-1"]
+[UTCDate "2021.01.21"]
+[UTCTime "18:25:27"]
+[WhiteElo "1195"]
+[BlackElo "1197"]
+[WhiteRatingDiff "-6"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C43"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. d4 Nxe4 4. Nxe5 Qe7 5. Bc4 d6 6. Bxf7+ Kd8 7. Bb3 dxe5 8. h4 exd4 9. O-O Qxh4 10. Qxd4+ Bd6 11. Qxg7 Qh2# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/m1pzSuWd"]
+[Date "2021.01.21"]
+[White "Tiluck"]
+[Black "Khreate"]
+[Result "1/2-1/2"]
+[UTCDate "2021.01.21"]
+[UTCTime "18:21:20"]
+[WhiteElo "1203"]
+[BlackElo "1197"]
+[WhiteRatingDiff "+0"]
+[BlackRatingDiff "+0"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C20"]
+[Termination "Normal"]
+
+1. e4 e5 2. Qh5 Nf6 3. Qxe5+ Be7 4. Qg3 Nc6 5. Qxg7 Rg8 6. Qh6 Nd4 7. Bd3 d6 8. e5 dxe5 9. Bxh7 Nxc2+ 10. Bxc2 Ng4 11. Qh7 Nf6 12. Qh6 Ng4 13. Qh7 Nf6 14. Qh6 Ng4 1/2-1/2
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/DDhEcBD6"]
+[Date "2021.01.20"]
+[White "Khreate"]
+[Black "TornadoOfSouls4"]
+[Result "0-1"]
+[UTCDate "2021.01.20"]
+[UTCTime "23:51:32"]
+[WhiteElo "1203"]
+[BlackElo "1159"]
+[WhiteRatingDiff "-6"]
+[BlackRatingDiff "+6"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C46"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nc3 Nc6 3. Nf3 d6 4. d4 f5 5. exf5 Bxf5 6. d5 Nd4 7. Bg5 Be7 8. Bb5+ c6 9. Ba4 Bxg5 10. Nxg5 Qxg5 11. O-O Bh3 12. Bxc6+ bxc6 13. Ne4 Qxg2# 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/ZkLfIx9H"]
+[Date "2021.01.19"]
+[White "Khreate"]
+[Black "Eskovaan"]
+[Result "0-1"]
+[UTCDate "2021.01.19"]
+[UTCTime "22:10:35"]
+[WhiteElo "1210"]
+[BlackElo "1111"]
+[WhiteRatingDiff "-7"]
+[BlackRatingDiff "+56"]
+[Variant "Standard"]
+[TimeControl "180+0"]
+[ECO "C00"]
+[Termination "Time forfeit"]
+
+1. e4 e6 2. Nf3 Be7 3. Bb5 Nf6 4. Nc3 O-O 5. d4 d5 6. Bf4 Ng4 7. Qd2 f5 8. exd5 exd5 9. O-O Bb4 10. a3 Bd6 11. Nxd5 Bxf4 12. Qxf4 Qxd5 13. c4 Qd8 14. c5 c6 15. Bc4+ Rf7 16. Bxf7+ Kxf7 17. Ne5+ Kg8 18. Nxg4 fxg4 19. Qg5 Be6 20. Rad1 Nd7 0-1
+
+
+[Event "Rated Blitz game"]
+[Site "https://lichess.org/eI3msVPu"]
+[Date "2021.01.19"]
+[White "Rishisach"]
+[Black "Khreate"]
+[Result "1-0"]
+[UTCDate "2021.01.19"]
+[UTCTime "05:15:25"]
+[WhiteElo "1160"]
+[BlackElo "1217"]
+[WhiteRatingDiff "+7"]
+[BlackRatingDiff "-7"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "C42"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 d5 4. exd5 Nxd5 5. Bc4 c6 6. O-O Bd6 7. d4 Be6 8. dxe5 Bc5 9. Re1 Nf4 10. Bxf4 Bxf2+ 11. Kxf2 Bxc4 12. Qxd8+ Kxd8 13. e6 fxe6 14. Ng5 Rf8 15. g3 Nd7 16. Rxe6 Nc5 17. Rd6+ Kc7 18. Ne6+ Kb6 19. Nxf8 Rxf8 20. Rd4 Be6 21. Kg1 Bd5 22. Na4+ Kb5 23. Nc3+ Kb6 24. Rb4+ Ka5 25. a3 Ka6 26. Bd6 b6 27. Bxf8 Nd7 28. Bxg7 c5 29. Rf4 c4 30. h4 Ne5 31. Bxe5 1-0
+
+
