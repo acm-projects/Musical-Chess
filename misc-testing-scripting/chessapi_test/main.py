@@ -9,13 +9,13 @@ pgn_store = []
 username = input("Enter your username here: ")
 games_raw = requests.get(f"https://api.chess.com/pub/player/{username}/games/2021/03")
 games = games_raw.json()['games']
-print(len(games))
+print(f'There are {len(games)} games.')
+pick = int(input('Pick a number in games: '))
 for i in range(len(games)):  # prints every game pgn for month of february
     # print(games[i]['pgn'])
     pgn_store.append(games[i]['pgn'])
-print(pgn_store[0])
-print(pgn_store[1])
-pgn = io.StringIO(pgn_store[0])
+print(pgn_store[pick])
+pgn = io.StringIO(pgn_store[pick])
 # this makes a game object using chess package pgn parsing, and pushes the moves to a board.
 game = chess.pgn.read_game(pgn)
 board = game.board()
