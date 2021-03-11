@@ -21,8 +21,17 @@ game = chess.pgn.read_game(pgn)
 board = game.board()
 print(type(board))
 boards = []
+count = 0
+color = None
 for move in game.mainline_moves():  # this prints a board for every position in the game.
     board.push(move)
+    count += 1
+    if board.is_check():
+        if count % 2 == 0:
+            color = 'black'
+        if count % 2 == 1:
+            color = 'white'
+        print(f'Move {count} by {color} is a check: {move}')
     boards.append(str(board))
     info = engine.analyse(board, chess.engine.Limit(depth=10))
     print(info['score'])
