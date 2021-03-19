@@ -2,7 +2,12 @@ import io
 import chess.pgn
 import lichess.api
 import re
+import chess.svg
+import chess.engine
 from lichess.format import SINGLE_PGN
+
+
+engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64/stockfish_13_win_x64.exe')
 
 #takes in username and last 20 games
 user = input('Enter your lichess username: ')
@@ -15,14 +20,15 @@ game_Num = input('Enter which game would you like? ')
 #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
 pgn_store = re.split(r'(1-0|0-1)$',pgn, flags=re.MULTILINE)
 
-#prints out each game in the pgn_store array(debug)
-#for game in pgn_store:
+# prints out each game in the pgn_store array(debug)
+# for game in pgn_store:
 #    print(game)
 #    print('-------------------------------------------------')
 
 #   with -> Will make sure the file closes
 with open(f'{user}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
     f.write(pgn)
+
 pgn_ = io.StringIO(pgn_store[(int(game_Num) - 1) * 2]) 
 
 #reads in a game
@@ -39,6 +45,9 @@ check = 0
 # this prints a board for every position in the game.
 for move in game.mainline_moves():  
     board.push(move)
+    info = engine.analyse(board, chess.engine.Limit(depth=10))
+    print(info['score'])
+    print(f"{board}", end='\n\n\n')
     if board.is_check():
         check += 1
 
