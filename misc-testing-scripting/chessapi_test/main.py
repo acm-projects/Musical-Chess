@@ -3,7 +3,7 @@ import io
 import chess.pgn
 import chess.engine
 
-engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64/stockfish_13_win_x64.exe')
+engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64_avx2.exe')
 pgn_store = []
 username = input("Enter your username here: ")
 games_raw = requests.get(f"https://api.chess.com/pub/player/{username}/games/2021/03")
@@ -33,5 +33,6 @@ for move in game.mainline_moves():  # this prints a board for every position in 
         print(f'Move {checks} by {color} is a check: {move}')
     boards.append(str(board))
     info = engine.analyse(board, chess.engine.Limit(depth=10))
+    print(str(info['score']))
     print(info['score'])
 print(board)
