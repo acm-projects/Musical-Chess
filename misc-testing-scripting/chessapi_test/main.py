@@ -4,7 +4,7 @@ import chess.pgn
 import chess.svg
 import chess.engine
 
-engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64_avx2.exe')
+engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64/stockfish_13_win_x64.exe')
 pgn_store = []
 username = input("Enter your username here: ")
 games_raw = requests.get(f"https://api.chess.com/pub/player/{username}/games/2021/03")
