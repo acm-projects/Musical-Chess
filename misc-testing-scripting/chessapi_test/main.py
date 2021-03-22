@@ -33,6 +33,21 @@ for move in game.mainline_moves():  # this prints a board for every position in 
         print(f'Move {checks} by {color} is a check: {move}')
     boards.append(str(board))
     info = engine.analyse(board, chess.engine.Limit(depth=10))
-    print(str(info['score']))
-    print(info['score'])
+    score_string = (str(info['score'])[12:16])
+    clean_score = int(score_string.replace(')', '').replace(',', '').replace('(', '').replace('e', ''))
+# ------------------------------- will use later to weigh stockfish score deltas ------------------------------
+    # if 0 < abs(clean_score):
+    # if abs(clean_score) <= 50 and clean_score > 0:
+    # print(f'{clean_score}, inaccuracy for white.')
+    # if abs(clean_score) <= 50 and clean_score < 0:
+    # print(f'{clean_score}, inaccuracy for black.')
+    # if abs(clean_score) <= 50 and clean_score > 0:
+    # print(f'{clean_score}, mistake for white.')
+    # if abs(clean_score) <= 50 and clean_score < 0:
+    # print(f'{clean_score}, mistake for black.')
+    # if abs(clean_score) <= 50 and clean_score > 0:
+    # print(f'{clean_score}, blunder for white.')
+    # if abs(clean_score) <= 50 and clean_score < 0:
+    # print(f'{clean_score}, blunder for black.')
+
 print(board)
