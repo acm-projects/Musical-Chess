@@ -22,6 +22,7 @@ print(type(board))
 boards = []
 checks = 0
 color = None
+scores = []
 for move in game.mainline_moves():  # this prints a board for every position in the game.
     board.push(move)
     checks += 1
@@ -35,19 +36,20 @@ for move in game.mainline_moves():  # this prints a board for every position in 
     info = engine.analyse(board, chess.engine.Limit(depth=10))
     score_string = (str(info['score'])[12:16])
     clean_score = int(score_string.replace(')', '').replace(',', '').replace('(', '').replace('e', ''))
+    scores.append(clean_score)
 # ------------------------------- will use later to weigh stockfish score deltas ------------------------------
-    # if 0 < abs(clean_score):
-    # if abs(clean_score) <= 50 and clean_score > 0:
-    # print(f'{clean_score}, inaccuracy for white.')
-    # if abs(clean_score) <= 50 and clean_score < 0:
-    # print(f'{clean_score}, inaccuracy for black.')
-    # if abs(clean_score) <= 50 and clean_score > 0:
-    # print(f'{clean_score}, mistake for white.')
-    # if abs(clean_score) <= 50 and clean_score < 0:
-    # print(f'{clean_score}, mistake for black.')
-    # if abs(clean_score) <= 50 and clean_score > 0:
-    # print(f'{clean_score}, blunder for white.')
-    # if abs(clean_score) <= 50 and clean_score < 0:
-    # print(f'{clean_score}, blunder for black.')
-
+   #  if 0 < abs(clean_score):
+        # if abs(clean_score) >= 50 and clean_score > 0:
+            # print(f'{clean_score}, inaccuracy for white.')
+        # elif abs(clean_score) >= 50 and clean_score < 0:
+            # print(f'{clean_score}, inaccuracy for black.')
+        # elif abs(clean_score) >= 100 and clean_score > 0:
+            # print(f'{clean_score}, mistake for white.')
+        # elif abs(clean_score) >= 100 and clean_score < 0:
+            # print(f'{clean_score}, mistake for black.')
+        # elif abs(clean_score) >= 300 and clean_score > 0:
+            # print(f'{clean_score}, blunder for white.')
+        # elif abs(clean_score) >= 300 and clean_score < 0:
+            # print(f'{clean_score}, blunder for black.')
+print(scores)
 print(board)
