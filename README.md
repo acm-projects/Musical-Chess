@@ -49,3 +49,16 @@ This app accepts chess games (via pgn or fen files or through a Lichess / chess.
   * [Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
 * [Oracle](https://www.oracle.com/index.html) (maybe)
   * Whether a database is needed depends on what the music generation algorithm looks like and whether we will implement a browse feature. We will discuss more on Design Day!
+
+## This Branch
+* This is the backend experimentation branch for Musical Chess.
+    * This branch currently contains test scripts along with a development Flask API.
+* To run this branch: 
+    * Make sure dependencies are installed (check import statements)
+    * Set environment variable `FLASK_APP=app.py` in the `misc-testing-scripting directory`
+    * Call `flask run` in terminal in the `misc-testing-scripting` directory
+        * This should start the server on `localhost:5000`
+* Calling the API when the Flask server is running: 
+    * There is not currently an `index.html` file, so going to `localhost:5000` will most likely return a HTTP 404 page not found error.
+    * To access a list of games played in the month/date specified, go to `localhost:5000/api/<chess.com username>/<year>/<month>`.
+    * To access a list of games played against a certain opponent in the month/date specified, go to `localhost:5000/api/<chess.com username>/<year>/<month>/<opponent's chess.com username>`.
