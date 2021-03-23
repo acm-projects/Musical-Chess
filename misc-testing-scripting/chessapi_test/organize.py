@@ -13,8 +13,7 @@ def search(username, input_month, input_year, input_opponent):
             date = (str(game.headers["Date"])).split('.')  # year, month, day
             year = date[0]
             month = date[1]
-            day = date[2]
-            enemy_username = ' '
+            day = date[2]   
             if game.headers["White"] == username:
                 enemy_username = game.headers["Black"]
             else:
