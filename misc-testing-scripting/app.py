@@ -35,6 +35,7 @@ def get_games_no_opponent(name, year, month):
 @app.route('/api/<name>/<year>/<month>/<opponent>')
 def get_games(name, year, month, opponent):
     games_raw = requests.get(f"https://api.chess.com/pub/player/{name}/games/{year}/{month}")
+    dates = []
     for i in range(0, len(games_raw.json()['games'])):
         game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
         if opponent in game.headers['Black'] or opponent in game.headers['White']:
@@ -47,5 +48,8 @@ def get_games(name, year, month, opponent):
             else:
                 enemy_username = game.headers["White"]
             winner = game.headers["Termination"].split(' ')[0]
+
             final_date = f'Game was played on {monthx}, {day}, {yearx} versus {enemy_username}; {winner} won.'
-            return final_date
+            dates.append(final_date)
+            dict_games = {'day': day, 'month': month, 'year': year, 'opponent': enemy_username}
+            return dict_games
