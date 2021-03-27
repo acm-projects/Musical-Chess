@@ -70,7 +70,7 @@ def get_games(name, year, month, opponent):
 @app.route('/api/lichess/<name>/<year>/<month>/')
 def get_games(name, year, month):
     return None
-
+    
 
 @app.route('/api/chess/<name>/<year>/<month>/<opponent>')
 def get_games(name, year, month, opponent):
