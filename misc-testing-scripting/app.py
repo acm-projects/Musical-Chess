@@ -1,4 +1,5 @@
 import requests
+
 import io
 import chess.pgn
 from flask import Flask, jsonify
@@ -9,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def render_index():
-    render_template('index.html')
+    return render_template('index.html')
 
 
 # chess.com implementation
