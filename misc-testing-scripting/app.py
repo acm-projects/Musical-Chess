@@ -7,7 +7,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
-engine = chess.engine.SimpleEngine.popen_uci("../Musical-Chess/stockfish_13_win_x64_avx2.exe")
+engine = chess.engine.SimpleEngine.popen_uci("../../Musical-Chess/stockfish_13_win_x64_avx2.exe")
 
 
 @app.route('/')
@@ -24,11 +24,13 @@ def get_games_no_opponent(name, year, month):
 
     for i in range(0, len(games_raw.json()['games'])):
         game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
+        board = chess.Board()
         moves_list = []
         scores = []
         for move in game.mainline_moves():
+            board.push(move)
             moves_list.append(str(move))
-            scores.append()
+            scores.append(engine.analyse(board, chess.engine.Limit(depth=10)))
         date = (str(game.headers["Date"])).split('.')  # year, month, day
         yearx = date[0]
         monthx = date[1]
@@ -43,7 +45,7 @@ def get_games_no_opponent(name, year, month):
             enemy_username = game.headers["White"]
         winner = game.headers["Termination"].split(' ')[0]
         api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
-                         'result': result, 'winner': winner, 'end': end_position, 'moves': moves_list}
+                         'result': result, 'winner': winner, 'end': end_position, 'moves': moves_list, 'scores': scores}
     return jsonify(api_result)
 
 
@@ -53,6 +55,13 @@ def get_games(name, year, month, opponent):
     api_result = {}
     for i in range(0, len(games_raw.json()['games'])):
         game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
+        board = chess.Board()
+        moves_list = []
+        scores = []
+        for move in game.mainline_moves():
+            board.push(move)
+            moves_list.append(str(move))
+            scores.append(engine.analyse(board, chess.engine.Limit(depth=10)))
         end_position = game.headers['CurrentPosition']
         result = game.headers['Termination'].split(' ')[3]
         if result == 'game':
@@ -69,7 +78,7 @@ def get_games(name, year, month, opponent):
             winner = game.headers["Termination"].split(' ')[0]
             api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
                              'result': result,
-                             'winner': winner, 'end': end_position}
+                             'winner': winner, 'end': end_position, 'scores': scores}
             return jsonify(api_result)
 
 
