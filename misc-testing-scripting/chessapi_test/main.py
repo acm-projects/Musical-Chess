@@ -3,7 +3,7 @@ import io
 import chess.pgn
 import chess.engine
 
-engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64_avx2.exe')
+engine = chess.engine.SimpleEngine.popen_uci('stockfish_13_win_x64/stockfish_13_win_x64.exe')
 pgn_store = []
 username = input("Enter your username here: ")
 games_raw = requests.get(f"https://api.chess.com/pub/player/{username}/games/2021/03")
@@ -37,6 +37,7 @@ for move in game.mainline_moves():  # this prints a board for every position in 
     score_string = (str(info['score'])[12:16])
     clean_score = int(score_string.replace(')', '').replace(',', '').replace('(', '').replace('e', ''))
     scores.append(clean_score)
+    print(score_string)
 # ------------------------------- will use later to weigh stockfish score deltas ------------------------------
    #  if 0 < abs(clean_score):
         # if abs(clean_score) >= 50 and clean_score > 0:
