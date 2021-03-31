@@ -1,13 +1,5 @@
-import io
-import chess.pgn
-import lichess.api
-import lichess.pgn
-import re
 import requests
-import chess.svg
-import chess.engine
-import requests, json
-from lichess.format import SINGLE_PGN
+
 from datetime import datetime
 
 # Basic Info
