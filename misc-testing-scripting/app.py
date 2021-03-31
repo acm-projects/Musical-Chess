@@ -1,11 +1,13 @@
 import requests
-
+import chess.engine
 import io
 import chess.pgn
 from flask import Flask, jsonify
 from flask import render_template
 
 app = Flask(__name__)
+
+engine = chess.engine.SimpleEngine.popen_uci("../Musical-Chess/stockfish_13_win_x64_avx2.exe")
 
 
 @app.route('/')
@@ -23,8 +25,10 @@ def get_games_no_opponent(name, year, month):
     for i in range(0, len(games_raw.json()['games'])):
         game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
         moves_list = []
+        scores = []
         for move in game.mainline_moves():
             moves_list.append(str(move))
+            scores.append()
         date = (str(game.headers["Date"])).split('.')  # year, month, day
         yearx = date[0]
         monthx = date[1]
