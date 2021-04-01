@@ -60,7 +60,7 @@ def get_games_no_opponent(name, year, month):
 def get_games(name, year, month, opponent):
     games_raw = requests.get(f"https://api.chess.com/pub/player/{name}/games/{year}/{month}")
     api_result = {}
-    info = None
+    colors = {}
     for i in range(0, len(games_raw.json()['games'])):
         game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
         board = chess.Board()
@@ -82,8 +82,12 @@ def get_games(name, year, month, opponent):
             day = date[2]
             if game.headers["White"].lower() == name.lower():
                 enemy_username = game.headers["Black"]
+                colors['name'] = 'White'
+                colors['opponent'] = 'Black'
             else:
                 enemy_username = game.headers["White"]
+                colors['name'] = 'Black'
+                colors['opponent'] = 'White'
             winner = game.headers["Termination"].split(' ')[0]
             api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
                              'result': result,
