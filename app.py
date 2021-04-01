@@ -27,10 +27,11 @@ def get_games_no_opponent(name, year, month):
         board = chess.Board()
         moves_list = []
         scores = []
+        colors = {}
         for move in game.mainline_moves():
             board.push(move)
             moves_list.append(str(move))
-            info = engine.analyse(board, chess.engine.Limit(time=0.01))
+            info = engine.analyse(board, chess.engine.Limit(time=0.005))
             scores.append(info['score'].white().score())
         date = (str(game.headers["Date"])).split('.')  # year, month, day
         yearx = date[0]
@@ -42,11 +43,16 @@ def get_games_no_opponent(name, year, month):
             result = 'abandoned'
         if game.headers["White"].lower() == name.lower():
             enemy_username = game.headers["Black"]
+            colors['name'] = 'White'
+            colors['opponent'] = 'Black'
         else:
             enemy_username = game.headers["White"]
+            colors['name'] = 'Black'
+            colors['opponent'] = 'White'
         winner = game.headers["Termination"].split(' ')[0]
         api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
-                         'result': result, 'winner': winner, 'end': end_position, 'moves': moves_list, 'scores': scores}
+                         'result': result, 'winner': winner, 'end': end_position, 'moves': moves_list, 'scores': scores,
+                         'colors': colors}
     return jsonify(api_result)
 
 
