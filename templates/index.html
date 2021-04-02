@@ -18,10 +18,16 @@
 </head>
 <body>
     <div id="board" style="width: 25%"></div>
-    <button id="changepos" onclick="changePos()">Change board position</button>
+    <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
 </body>
 
 <script>
+    function load_data() {
+        fetch('http://localhost:5000/api/chess/kirosla/2021/03')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+    }
     function test() {
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)

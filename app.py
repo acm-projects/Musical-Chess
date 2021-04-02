@@ -2,8 +2,9 @@ import requests
 import chess.engine
 import io
 import chess.pgn
-from flask import Flask, jsonify
+from flask import Flask, jsonify, after_this_request, request
 from flask import render_template
+# import flask_cors
 
 app = Flask(__name__)
 
@@ -16,8 +17,13 @@ def render_index():
 
 
 # chess.com implementation
-@app.route('/api/chess/<name>/<year>/<month>/')
+@app.route('/api/chess/<name>/<year>/<month>/', methods=['GET'])
 def get_games_no_opponent(name, year, month):
+    # @after_this_request
+    # def add_header(response):
+        # response.headers['Access-Control-Allow-Origin'] = '*'
+        # return response
+
     api_result = {}
 
     games_raw = requests.get(f"https://api.chess.com/pub/player/{name}/games/{year}/{month}")
@@ -56,7 +62,7 @@ def get_games_no_opponent(name, year, month):
     return jsonify(api_result)
 
 
-@app.route('/api/chess/<name>/<year>/<month>/<opponent>')
+@app.route('/api/chess/<name>/<year>/<month>/<opponent>', methods=['GET'])
 def get_games(name, year, month, opponent):
     games_raw = requests.get(f"https://api.chess.com/pub/player/{name}/games/{year}/{month}")
     api_result = {}
