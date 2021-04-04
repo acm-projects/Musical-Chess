@@ -4,9 +4,11 @@ import io
 import chess.pgn
 from flask import Flask, jsonify, after_this_request, request
 from flask import render_template
-# import flask_cors
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 
 engine = chess.engine.SimpleEngine.popen_uci("stockfish_13_win_x64_avx2.exe")
 
