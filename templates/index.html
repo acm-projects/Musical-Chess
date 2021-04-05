@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.15/Tone.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
@@ -16,9 +16,76 @@
             integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
             crossorigin="anonymous"></script>
 </head>
-<body>
-    <div id="board" style="width: 25%"></div>
-    <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
+<body style="background-color: lightgray">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-7">
+            <form action="">
+                <input type="text" placeholder="Your chess.com username">
+                <input type="submit" value="Get Games">
+            </form>
+			<div id="board" style="width: 70%; height: 70%"></div>
+            <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
+		</div>
+		<div class="col-md-3">
+            <h3>Games: </h3>
+			<div class="card text-white bg-info">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+			<div class="card text-white bg-info">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+			<div class="card text-white bg-info">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+			<div class="card text-white bg-info">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 
 <script>
