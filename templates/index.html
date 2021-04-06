@@ -16,7 +16,7 @@
             integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
             crossorigin="anonymous"></script>
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: #494747; color: white;">
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
@@ -31,6 +31,7 @@
             <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
 		</div>
 		<div class="col-md-3">
+            <!-- todo: add game info via api call to these cards -->
             <h3>Games: </h3>
 			<div class="card text-white bg-info">
 				<h5 class="card-header">
@@ -41,9 +42,7 @@
 						Card content
 					</p>
 				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
+
 			</div>
 			<div class="card text-white bg-info">
 				<h5 class="card-header">
@@ -54,9 +53,7 @@
 						Card content
 					</p>
 				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
+
 			</div>
 			<div class="card text-white bg-info">
 				<h5 class="card-header">
@@ -67,9 +64,7 @@
 						Card content
 					</p>
 				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
+
 			</div>
 			<div class="card text-white bg-info">
 				<h5 class="card-header">
@@ -80,15 +75,12 @@
 						Card content
 					</p>
 				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
 </body>
-
 <script>
     function load_data() {
         fetch('http://localhost:5000/api/chess/kirosla/2021/03')
