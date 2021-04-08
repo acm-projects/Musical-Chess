@@ -38,7 +38,7 @@ def get_games_no_opponent(name, year, month):
         colors = {}
         for move in game.mainline_moves():
             board.push(move)
-            moves_list.append(str(move))
+            moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
             info = engine.analyse(board, chess.engine.Limit(time=0.005))
             scores.append(info['score'].white().score())
         date = (str(game.headers["Date"])).split('.')  # year, month, day
