@@ -18,10 +18,12 @@
 </head>
 <body>
     <div id="board" style="width: 25%"></div>
-    <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
+    <button id="changepos" onclick="changePos()">Change board position</button>
 </body>
 
 <script>
+
+    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
     function load_data() {
         fetch('http://localhost:5000/api/chess/kirosla/2021/03')
             .then(response => response.json())
@@ -31,11 +33,26 @@
     function test() {
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
-    }
 
+        
+    }
+    // function myFunction() {
+    //     setTimeout(function(){ alert("Hello"); }, 3000);
+    // }
+
+    
     function changePos() {
         board.move('e2-e4')
+        //for(var i=0;i<moves.length;i++){
+            //setTimeout(() => ( ,2000);
+            setInterval(function sleep(){ for(var i=0;i<moves.length;i++){  board.move(moves[i])}  }, 3000);
+
+       
+            //board.move(moves[i])
+
+        //}
     }
+    
 
     var config = {
         draggable: true,

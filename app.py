@@ -8,7 +8,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
-engine = chess.engine.SimpleEngine.popen_uci("stockfish_13_win_x64_avx2.exe")
+engine = chess.engine.SimpleEngine.popen_uci("stockfish_13_win_x64.exe")
 
 
 @app.route('/')
@@ -104,6 +104,23 @@ def get_games(name, year, month, opponent):
 # lichess api implementation
 @app.route('/api/lichess/<name>/<year>/<month>/')
 def get_games_li_no_opponent(name, year, month):
+    #midnight first day  ->  #midnight last day month into timestamped seconds format 
+    first = datetime.strptime(f'01.{month}.{year} 01:00:00,76',
+                           '%d.%m.%Y %H:%M:%S,%f')                      
+    last = datetime.strptime(f'30.{month}.{year} 12:00:00,76',
+                           '%d.%m.%Y %H:%M:%S,%f')
+    first_stamp = first.timestamp() * 1000
+    last_stamp = last.timestamp() * 1000
+
+    url = f"https://www.lichess.org/api/games/user/{user}"
+
+    request = requests.get(
+    url,
+     params={"since":first_stamp , "until":last_stamp,  "opening":"true"},
+     headers={"Accept": "application/x-chess-pgn"}
+    )
+
+    games_raw = request.content.decode("utf-8")
     return None
     
 
