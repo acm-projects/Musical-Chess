@@ -24,9 +24,9 @@
 		</div>
 		<div class="col-md-7">
             <form action="">
-                <input type="text" placeholder="Your chess.com username">
-                Month: <input type="number" min= "1" max="12" placeholder="1">
-                <input type="submit" value="Get Games">
+                <input id="username" type="text" placeholder="Your chess.com username">
+                Month: <input id="month" type="number" min= "1" max="12" placeholder="1">
+                <input type="button" value="Get Games" onclick="api_call()">
             </form>
 			<div id="board" style="width: 70%; height: 70%"></div>
             <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
@@ -83,14 +83,21 @@
 </div>
 </body>
 <script>
-
-    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
-    function load_data() {
-        fetch('http://localhost:5000/api/chess/kirosla/2021/03')
+    function load_data(username, month) {
+        fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
             .then(response => response.json())
             .then(data => console.log(data));
 
     }
+
+    function api_call() {
+        var username = document.getElementById('username').value;
+        var month = document.getElementById('month').value;
+        load_data(username, month)
+    }
+
+    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
+
     function test() {
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
@@ -107,7 +114,7 @@
 
     async function changePos() {
         board.move('e2-e4')
-        for(var i=0;i<moves.length;i++){
+        for(let i=0;i<moves.length;i++){
             //setTimeout(() => ( ,2000);
             //setInterval(function sleep(){ for(var i=0;i<moves.length;i++){  board.move(moves[i])}  }, 3000);
 
