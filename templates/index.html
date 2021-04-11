@@ -20,6 +20,7 @@
 </head>
 
 <body style="background-color: #494747; color: white;">
+<p id="test">test</p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
@@ -31,7 +32,7 @@
                 <input type="button" value="Get Games" onclick="api_call()">
             </form>
 			<div id="board" style="width: 70%; height: 70%"></div>
-            <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
+            <button id="changepos" onclick="changePos()">Change board position</button>
 		</div>
 		<div class="col-md-3">
             <!-- todo: add game info via api call to these cards -->
@@ -78,18 +79,16 @@
 						Card content
 					</p>
 				</div>
-
 			</div>
 		</div>
 	</div>
 </div>
-</body>
 <script>
     function load_data(username, month) {
         fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
             .then(response => response.json())
-            .then(data => console.log(data));
-
+            .then(data =>
+                document.getElementById('test').innerHTML=JSON.stringify(data));
     }
 
     function api_call() {
@@ -104,7 +103,7 @@
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
 
-        
+
     }
     // function myFunction() {
     //     setTimeout(function(){ alert("Hello"); }, 3000);
@@ -125,7 +124,7 @@
 
         }
     }
-    
+
 
     var config = {
         draggable: true,
@@ -136,4 +135,6 @@
     }
     var board = Chessboard('board', config)
 </script>
+</body>
+
 </html>
