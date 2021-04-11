@@ -84,33 +84,43 @@
 </body>
 <script>
 
-    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
+    //let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
+    let moves = ['e2-e4','e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
+    
+    //white pov If u want blacks reverse everything
+    let stockfish =[7,14,37,25,24,52,67,51,52,103,149,255,74,155,132,145]
     function load_data() {
         fetch('http://localhost:5000/api/chess/kirosla/2021/03')
             .then(response => response.json())
             .then(data => console.log(data));
+            
 
     }
     function test() {
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
 
-        
+        let stockfishNum = stockfish[j];
+        //good move
+        if(stockfishNum > 50 && stockfishNum < 100) {
+
+        }
+
+        j++
     }
-    // function myFunction() {
-    //     setTimeout(function(){ alert("Hello"); }, 3000);
-    // }
+
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    async function changePos() {
-        board.move('e2-e4')
-        for(var i=0;i<moves.length;i++){
-            //setTimeout(() => ( ,2000);
-            //setInterval(function sleep(){ for(var i=0;i<moves.length;i++){  board.move(moves[i])}  }, 3000);
+      
 
+    async function changePos() {
+        var j=0;
+        for(var i=0;i<moves.length;i++){
+ 
+            //sleep
             await sleep(2000);
             board.move(moves[i])
 
