@@ -15,21 +15,24 @@
     <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
             integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
             crossorigin="anonymous"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 </head>
 
 <body style="background-color: #494747; color: white;">
+<p id="test">test</p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-7">
             <form action="">
-                <input type="text" placeholder="Your chess.com username">
-                Month: <input type="number" min= "1" max="12" placeholder="1">
-                <input type="submit" value="Get Games">
+                <input id="username" type="text" placeholder="Your chess.com username">
+                Month: <input id="month" type="number" min= "1" max="12" placeholder="1">
+                <input type="button" value="Get Games" onclick="api_call()">
             </form>
 			<div id="board" style="width: 70%; height: 70%"></div>
-            <button id="changepos" onclick="changePos(); load_data()">Change board position</button>
+            <button id="changepos" onclick="changePos()">Change board position</button>
 		</div>
 		<div class="col-md-3">
             <!-- todo: add game info via api call to these cards -->
@@ -76,37 +79,30 @@
 						Card content
 					</p>
 				</div>
-
 			</div>
 		</div>
 	</div>
 </div>
-</body>
 <script>
-
-    //let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
-    let moves = ['e2-e4','e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
-    
-    //white pov If u want blacks reverse everything
-    let stockfish =[7,14,37,25,24,52,67,51,52,103,149,255,74,155,132,145]
-    function load_data() {
-        fetch('http://localhost:5000/api/chess/kirosla/2021/03')
+    function load_data(username, month) {
+        fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
             .then(response => response.json())
-            .then(data => console.log(data));
-            
-
+            .then(data =>
+                document.getElementById('test').innerHTML=JSON.stringify(data));
     }
+
+    function api_call() {
+        var username = document.getElementById('username').value;
+        var month = document.getElementById('month').value;
+        load_data(username, month)
+    }
+
+    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
+
     function test() {
         const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
 
-        let stockfishNum = stockfish[j];
-        //good move
-        if(stockfishNum > 50 && stockfishNum < 100) {
-
-        }
-
-        j++
     }
 
 
@@ -117,16 +113,17 @@
       
 
     async function changePos() {
-        var j=0;
-        for(var i=0;i<moves.length;i++){
- 
-            //sleep
+        board.move('e2-e4')
+        for(let i=0;i<moves.length;i++){
+            //setTimeout(() => ( ,2000);
+            //setInterval(function sleep(){ for(var i=0;i<moves.length;i++){  board.move(moves[i])}  }, 3000);
+
             await sleep(2000);
             board.move(moves[i])
 
         }
     }
-    
+
 
     var config = {
         draggable: true,
@@ -137,4 +134,6 @@
     }
     var board = Chessboard('board', config)
 </script>
+</body>
+
 </html>
