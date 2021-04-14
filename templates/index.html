@@ -98,20 +98,51 @@
     }
 
     let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
-
+    let stockfish = [45,45,-45,45,45,-45,45,-45,45,45,-45,45,45, -45]
+    var j=0
     function test() {
-        const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
-        synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
+        //const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
+        //synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
+        
+        if(stockfish[j] > 0){
+
+            //Plays arpeggios
+            const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+            const now = Tone.now()
+            synth.triggerAttack("C4", now);
+            synth.triggerRelease(["C4", "E4", "G4"], now + 0.5);
+            synth.triggerAttack("E4", now + 0.5);
+            synth.triggerRelease(["C4", "E4", "G4"], now + 1);
+            synth.triggerAttack("G4", now + 1);
+            synth.triggerRelease(["C4", "E4", "G4"], now + 1.5);
+        } else{
+            //Plays arpeggios
+            const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+            const now = Tone.now()
+            synth.triggerAttack("A4", now);
+            synth.triggerRelease(["A4", "C4", "E4"], now + 0.5);
+            synth.triggerAttack("C4", now + 0.5);
+            synth.triggerRelease(["A4", "C4", "E4"], now + 1);
+            synth.triggerAttack("E4", now + 1);
+            synth.triggerRelease(["A4", "C4", "E4"], now + 1.5);            
+        } 
 
 
+
+
+
+
+        //playing chords/releasing chords
+        //synth.triggerRelease(["C4", "E4", "G4"], now + 1.5);
+        j++;
     }
-    // function myFunction() {
-    //     setTimeout(function(){ alert("Hello"); }, 3000);
-    // }
+
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
+
+      
 
     async function changePos() {
         board.move('e2-e4')
@@ -125,7 +156,7 @@
         }
     }
 
-
+ 
     var config = {
         draggable: true,
         dropOffBoard: 'snapback',
