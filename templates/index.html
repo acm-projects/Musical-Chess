@@ -97,6 +97,13 @@
         load_data(username, month)
     }
 
+    function after_load_data() {
+        const RESULT = JSON.parse(document.getElementById('test').innerHTML);
+        for (const property in RESULT) {
+            console.log(`${property}: ${RESULT[property].name}`);
+        }
+    }
+
     let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
     let stockfish = [45,45,-45,45,45,-45,45,-45,45,45,-45,45,45, -45]
     var j=0
