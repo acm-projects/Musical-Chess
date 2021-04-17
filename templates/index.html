@@ -18,7 +18,7 @@
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 </head>
-
+<p id="date" ></p>
 <body style="background-color: #494747; color: white;">
 <p id="test">test</p>
 <div class="container-fluid">
@@ -38,12 +38,13 @@
             <!-- todo: add game info via api call to these cards -->
             <h3>Games: </h3>
 			<div class="card text-white bg-info">
-				<h5 class="card-header">
+				<h5 class="card-header" id="opponent">
 					Card title
 				</h5>
-				<div class="card-body">
+				<div class="card-body" id="winner">
 					<p class="card-text">
-						Card content
+						Card content:
+                        
 					</p>
 				</div>
 
@@ -89,18 +90,66 @@
             .then(response => response.json())
             .then(data =>
                 document.getElementById('test').innerHTML=JSON.stringify(data));
+        
     }
 
     function api_call() {
         var username = document.getElementById('username').value;
         var month = document.getElementById('month').value;
         load_data(username, month)
+        
     }
 
     function after_load_data() {
         const RESULT = JSON.parse(document.getElementById('test').innerHTML);
+
+        //opponents name, Winner, and date
         for (const property in RESULT) {
-            console.log(`${property}: ${RESULT[property].name}`);
+            //string type
+            console.log(typeof(`${property}: ${RESULT[property].name}`));
+            
+
+            
+            //gets winner
+            console.log(`${property}: ${RESULT[property].winner}`);
+            var winner = `${property}: ${RESULT[property].winner}`;
+            winner = winner.substring(3);
+            console.log(winner);
+            document.getElementById('winner').innerHTML=winner;
+            
+
+
+            //gets opponent
+            console.log(`${property}: ${RESULT[property].opponent}`);
+            var opponent = `${property}: ${RESULT[property].opponent}`;
+            opponent = opponent.substring(3);
+            console.log(opponent);
+            document.getElementById('opponent').innerHTML=opponent;
+
+
+            
+            //gets opponent
+            console.log(`${property}: ${RESULT[property].day}`);
+            var date = `${property}: ${RESULT[property].day} / ${property}: ${RESULT[property].month} / `;
+            opponent = opponent.substring(3);
+            console.log(opponent);
+            document.getElementById('opponent').innerHTML=opponent;
+
+
+
+            /*//gets moves
+            console.log(`${property}: ${RESULT[property].moves}`);
+            var moves = `${property}: ${RESULT[property].moves}`;
+            moves = moves.substring(3)
+            console.log(moves);
+            document.getElementById('moves').innerHTML=moves; */
+
+            //test code
+            //var text = JSON.stringify(`${RESULT[property]}`);
+            //console.log(_
+
+
+            break;
         }
     }
 
@@ -133,11 +182,6 @@
             synth.triggerAttack("E4", now + 1);
             synth.triggerRelease(["A4", "C4", "E4"], now + 1.5);            
         } 
-
-
-
-
-
 
         //playing chords/releasing chords
         //synth.triggerRelease(["C4", "E4", "G4"], now + 1.5);
