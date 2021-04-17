@@ -10,3 +10,5 @@ This branch contains the API that backend has created in Flask, as well as a tem
 # To run: 
 
 Make sure Python is installed, clone this repo, then install dependencies via `pip install`. 
+Then, in terminal (Windows): `set FLASK_APP=app.py`
+Then, in terminal (Windows): `flask run`
