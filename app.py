@@ -107,6 +107,7 @@ def get_games(name, year, month, opponent):
 
 
 # lichess api implementation
+
 @app.route('/api/lichess/<name>/<year>/<month>/')
 def get_games_li_no_opponent(name, year, month):
     # midnight first day  ->  #midnight last day month into timestamped seconds format

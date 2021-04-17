@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="centered">
+  <h2 id="info_here">Musical Chess</h2>
+  <form id="search">
+    <div class="form-group">
+      <input id = "username" type="text" class="form-control" placeholder="Username" />
+      <input id = "date" type="date" class="form-control" placeholder="Date" />
+      <input id = "opponent" type="text" class="form-control" placeholder="Opponent's username" />
+      <button id="searchbtn" name = "Let's go!" type="button" class="form-control btn-success" onclick="thing()">Search</button>
+    </div>
+  </form>
+</div>
+
+<script>
+    function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function display() {
+  let username = document.getElementById("username").value;
+  let date = document.getElementById("date").value;
+  let opponent = document.getElementById("opponent").value;
+  document.getElementById("info_here").innerHTML = username + date + opponent;
+  await sleep(2000);
+}
+
+async function thing() {
+  document.getElementById("searchbtn").innerHTML = "Searching...";
+  await display();
+  document.getElementById("searchbtn").innerHTML = "Done";
+  await sleep(1000);
+  window.location.replace("https://reddit.com");
+}
+
+
+</script>
+
+</body>
+</html>
