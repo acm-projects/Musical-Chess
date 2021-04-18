@@ -21,11 +21,24 @@
     function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+var username;
+var date;
+var opponent;
+
 async function display() {
-  let username = document.getElementById("username").value;
-  let date = document.getElementById("date").value;
-  let opponent = document.getElementById("opponent").value;
-  document.getElementById("info_here").innerHTML = username + date + opponent;
+  username = document.getElementById("username").value;
+  date = document.getElementById("date").value;
+  let date_clean = date.split('-');
+  let year = date_clean[0];
+  let month = date_clean[1];
+  opponent = document.getElementById("opponent").value;
+  if(opponent) {
+      document.getElementById("info_here").innerHTML = username + '/' + year + '/' + month + '/' + opponent;
+  }
+  else {
+      document.getElementById("info_here").innerHTML = username + '/' +  year + '/' + month;
+  }
+
   await sleep(2000);
 }
 
@@ -34,7 +47,7 @@ async function thing() {
   await display();
   document.getElementById("searchbtn").innerHTML = "Done";
   await sleep(1000);
-  window.location.replace("https://reddit.com");
+  window.location.replace("http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML);
 }
 
 
