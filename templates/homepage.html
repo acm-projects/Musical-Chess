@@ -24,6 +24,7 @@
 var username;
 var date;
 var opponent;
+var api_output;
 
 async function display() {
   username = document.getElementById("username").value;
@@ -48,6 +49,7 @@ async function thing() {
   document.getElementById("searchbtn").innerHTML = "Done";
   await sleep(1000);
 
+  api_output = "http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML;
   window.location.replace("http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML);
 
 }
