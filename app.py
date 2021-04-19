@@ -17,6 +17,11 @@ def render_index():
     return render_template('index.html')
 
 
+@app.route('/homepage')
+def render_homepage():
+    return render_template('homepage.html')
+
+
 # chess.com implementation
 @app.route('/api/chess/<name>/<year>/<month>/', methods=['GET'])
 def get_games_no_opponent(name, year, month):
