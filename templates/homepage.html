@@ -48,6 +48,8 @@ async function thing() {
   document.getElementById("searchbtn").innerHTML = "Done";
   await sleep(1000);
 
+  window.location.replace("http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML);
+
 }
 
 
