@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="centered">
+  <h2 id="info_here">Musical Chess</h2>
+  <form id="search">
+    <div class="form-group">
+      <input id = "username" type="text" class="form-control" placeholder="Username" />
+      <input id = "date" type="date" class="form-control" placeholder="Date" />
+      <input id = "opponent" type="text" class="form-control" placeholder="Opponent's username" />
+      <button id="searchbtn" name="search-submit" type="button" class="form-control btn-success" onclick="thing()">Search</button>
+    </div>
+  </form>
+</div>
+
+<script>
+    function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+var username;
+var date;
+var opponent;
+var api_output;
+
+async function display() {
+  username = document.getElementById("username").value;
+  date = document.getElementById("date").value;
+  let date_clean = date.split('-');
+  let year = date_clean[0];
+  let month = date_clean[1];
+  opponent = document.getElementById("opponent").value;
+  if(opponent) {
+      document.getElementById("info_here").innerHTML = username + '/' + year + '/' + month + '/' + opponent;
+  }
+  else {
+      document.getElementById("info_here").innerHTML = username + '/' +  year + '/' + month;
+  }
+
+  await sleep(2000);
+}
+
+async function thing() {
+  document.getElementById("searchbtn").innerHTML = "Searching...";
+  await display();
+  document.getElementById("searchbtn").innerHTML = "Done";
+  await sleep(1000);
+
+  api_output = "http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML;
+  window.location.replace("http://localhost:5000/api/chess/" + document.getElementById("info_here").innerHTML);
+
+}
+
+
+</script>
+
+</body>
+</html>
