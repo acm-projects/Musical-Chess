@@ -20,7 +20,7 @@
 </head>
 <p id="date" ></p>
 <body style="background-color: #494747; color: white;">
-<p id="test">test</p>
+<p id="test" hidden>test</p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
@@ -37,59 +37,144 @@
 		<div class="col-md-3">
             <!-- todo: add game info via api call to these cards -->
             <h3>Games: </h3>
+            <!-- GAME 1 -->
 			<div class="card text-white bg-info">
-				<h5 class="card-header" id="opponent">
-					Card title
+                <!--Title-->
+				<h5 class="card-header" id="opponent1">
+					Game 1: 
 				</h5>
-				<div class="card-body" id="winner">
+
+
+				<div class="card-body" id="winner1">
 					<p class="card-text">
-						Card content:
-                        
 					</p>
 				</div>
 
+
+                <div class="card-body" id="date2">
+					<p class="card-text">
+					</p>
+				</div>
+                
+                <div class="card-body" id="moves_1" >
+					<p class="card-text">
+					</p>
+				</div>
+                <div class="card-body" id="stockfish_1" hidden>
+					<p class="card-text">
+					</p>
+				</div>
 			</div>
+            <!-- GAME 2 -->
 			<div class="card text-white bg-info">
-				<h5 class="card-header">
-					Card title
+				<!--Title-->
+                <h5 class="card-header" id="opponent2">
+					Game2:
 				</h5>
-				<div class="card-body">
+				<div class="card-body" id="winner2">
+					<p class="card-text">
+					</p>
+				</div>
+
+				<div class="card-body" id="date3">
+					<p class="card-text">
+					
+					</p>
+				</div>
+                <div class="card-body" id="moves_2" hidden>
+					<p class="card-text">
+					</p>
+				</div>
+                <div class="card-body" id="stockfish_2" hidden>
+					<p class="card-text">
+					</p>
+				</div>
+			</div>
+            <!-- GAME 3 -->
+			<div class="card text-white bg-info">
+                <!--Title-->
+				<h5 class="card-header" id="opponent3">
+					Game 3:
+				</h5>
+
+				<div class="card-body" id="winner3">
+					<p class="card-text">
+					</p>
+				</div>
+
+
+				<div class="card-body" id="date4">
+					<p class="card-text">
+					
+					</p>
+				</div>
+                <div class="card-body" id="moves_3" hidden>
+					<p class="card-text">
+					</p>
+				</div>
+                <div class="card-body" id="stockfish_3" hidden>
+					<p class="card-text">
+					</p>
+				</div>
+			</div>
+            <!-- GAME 4 -->
+			<div class="card text-white bg-info">
+                <!--Title-->
+				<h5 class="card-header" id="opponent4">
+					Game 4:
+				</h5>
+
+				<div class="card-body" id="winner4">
+					<p class="card-text">
+					</p>
+				</div>
+
+
+				<div class="card-body" id="date5">
 					<p class="card-text">
 						Card content
 					</p>
 				</div>
-
-			</div>
-			<div class="card text-white bg-info">
-				<h5 class="card-header">
-					Card title
-				</h5>
-				<div class="card-body">
+                <div class="card-body" id="moves_4" hidden>
 					<p class="card-text">
-						Card content
 					</p>
 				</div>
-
-			</div>
-			<div class="card text-white bg-info">
-				<h5 class="card-header">
-					Card title
-				</h5>
-				<div class="card-body">
+                <div class="card-body" id="stockfish_4" hidden>
 					<p class="card-text">
-						Card content
 					</p>
 				</div>
 			</div>
+                        <!-- GAME Select -->
+			<div class="card text-white bg-info">
+                <!--Title-->
+				<h5 class="card-header" >
+					Game SElect:
+				</h5>
+
+				<div class="card-body" >
+                    <form action="">
+                        <input id="gameSelect" type="text" placeholder="Enter game number 1-4">
+                        <input type="button" value="Get Games" onclick="game_Chose()">
+                    </form>
+				</div>
+
+
+			</div>
+
+
 		</div>
 	</div>
 </div>
 <script>
-    function load_data(username, month) {
-        fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
+
+    
+    async function load_data(username, month) {
+        await fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
             .then(response => response.json())
             .then(data =>
                 document.getElementById('test').innerHTML=JSON.stringify(data));
+
+        after_load_data();
         
     }
 
@@ -102,93 +187,181 @@
 
     function after_load_data() {
         const RESULT = JSON.parse(document.getElementById('test').innerHTML);
-
+        var k=1;
         //opponents name, Winner, and date
         for (const property in RESULT) {
-            //string type
-            console.log(typeof(`${property}: ${RESULT[property].name}`));
+
+    
+                //gets winner
+                //console.log(`${property}: ${RESULT[property].winner}`);
+                var winner = `${property}: ${RESULT[property].winner}`;
+                winner = winner.substring(3);
+                //console.log(winner);
+                var txt = 'Winner: ';
+                winner = txt + winner; 
+                document.getElementById(`winner${k}`).innerHTML=winner;
+                
+                //gets opponent
+                //console.log(`${property}: ${RESULT[property].opponent}`);
+                var opponent = `${property}: ${RESULT[property].opponent}`;
+                opponent = opponent.substring(3);
+                opponent = 'Opponent: ' + opponent;
+               // console.log(opponent);
+                document.getElementById(`opponent${k}`).innerHTML=opponent;
+                
+                //gets date
+                //console.log(`${property}: ${RESULT[property].day}`);
+                var day = `${property}: ${RESULT[property].day}`;
+                day = day.substring(3);
+               // console.log(day);
+                
+                //gets date
+               // console.log(`${property}: ${RESULT[property].month}`);
+                var month2 = `${property}: ${RESULT[property].month}`;
+                month2 = month2.substring(3);
+               // console.log(month2);
+        
+                //gets date
+              //  console.log(`${property}: ${RESULT[property].year}`);
+                var year = `${property}: ${RESULT[property].year}`;
+                year = year.substring(3);
+               // console.log(year);
+        
+                // //creates date
+                var date2 = 'date: '+month2+'/'+day+'/'+year;
+               // console.log(date2)
+                document.getElementById(`date${k+1}`).innerHTML = date2;
+
+                //gets moves
+                console.log(`${property}: ${RESULT[property].moves}`);
+                moves = `${property}: ${RESULT[property].moves}`;
+                moves = moves.substring(3)
+                console.log(typeof(moves));
+                console.log(moves);
+                
+                document.getElementById(`moves_${k}`).innerHTML=moves; 
+             
+            if(k==4)
+                break;
             
-
-            
-            //gets winner
-            console.log(`${property}: ${RESULT[property].winner}`);
-            var winner = `${property}: ${RESULT[property].winner}`;
-            winner = winner.substring(3);
-            console.log(winner);
-            document.getElementById('winner').innerHTML=winner;
-            
-
-
-            //gets opponent
-            console.log(`${property}: ${RESULT[property].opponent}`);
-            var opponent = `${property}: ${RESULT[property].opponent}`;
-            opponent = opponent.substring(3);
-            console.log(opponent);
-            document.getElementById('opponent').innerHTML=opponent;
-
-
-            
-            //gets opponent
-            console.log(`${property}: ${RESULT[property].day}`);
-            var date = `${property}: ${RESULT[property].day} / ${property}: ${RESULT[property].month} / `;
-            opponent = opponent.substring(3);
-            console.log(opponent);
-            document.getElementById('opponent').innerHTML=opponent;
-
-
-
-            /*//gets moves
-            console.log(`${property}: ${RESULT[property].moves}`);
-            var moves = `${property}: ${RESULT[property].moves}`;
-            moves = moves.substring(3)
-            console.log(moves);
-            document.getElementById('moves').innerHTML=moves; */
-
-            //test code
-            //var text = JSON.stringify(`${RESULT[property]}`);
-            //console.log(_
-
-
-            break;
+            k++;
+           
         }
     }
 
-    let moves = ['e7-e5', 'g1-f3','b8-c6','b1-c3','g8-f6','f1-c4','f7-e4','c3-e4','d7-d5','e4-f6','g7-f6','c4-b5','c8-f5']
-    let stockfish = [45,45,-45,45,45,-45,45,-45,45,45,-45,45,45, -45]
+    let moves ;
+    let stockfish ;
+    function game_Chose(){
+        //const chosen = document.getElementById('gameSelect').value
+        //console.log(document.getElementById(`moves_${chosen}`).value);
+        var number = document.getElementById(`gameSelect`).value;
+        console.log(number);
+        console.log(document.getElementById(`moves_${number}`).innerHTML);
+       // moves = document.getElementById(`moves_${chosen}`).value;
+        //console.log("type of below")
+        //console.log(typeof(moves))
+        moves = document.getElementById(`moves_${number}`).innerHTML.split(',');
+
+        console.log(moves)
+    }
     var j=0
     function test() {
         //const synth = new Tone.Synth().toDestination(); //creates synth and connects it to main output
         //synth.triggerAttackRelease("C4", "16n"); //playes synth tone C4 for duration of 16th note (8n = 8th note, 2n = half note, so on)
-        
-        if(stockfish[j] > 0){
+        const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+        const now = Tone.now()
+      //   if(stockfish[j] >= 0){
 
             //Plays arpeggios
-            const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-            const now = Tone.now()
+            //C major arpeggio
             synth.triggerAttack("C4", now);
             synth.triggerRelease(["C4", "E4", "G4"], now + 0.5);
             synth.triggerAttack("E4", now + 0.5);
             synth.triggerRelease(["C4", "E4", "G4"], now + 1);
             synth.triggerAttack("G4", now + 1);
             synth.triggerRelease(["C4", "E4", "G4"], now + 1.5);
-        } else{
+        //} else {
             //Plays arpeggios
-            const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-            const now = Tone.now()
-            synth.triggerAttack("A4", now);
-            synth.triggerRelease(["A4", "C4", "E4"], now + 0.5);
-            synth.triggerAttack("C4", now + 0.5);
-            synth.triggerRelease(["A4", "C4", "E4"], now + 1);
-            synth.triggerAttack("E4", now + 1);
-            synth.triggerRelease(["A4", "C4", "E4"], now + 1.5);            
-        } 
+            //A minor arpeggio
+            // synth.triggerAttack("A4", now);
+            // synth.triggerRelease(["A4", "C4", "E4"], now + 0.5);
+            // synth.triggerAttack("C4", now + 0.5);
+            // synth.triggerRelease(["A4", "C4", "E4"], now + 1);
+            // synth.triggerAttack("E4", now + 1);
+            // synth.triggerRelease(["A4", "C4", "E4"], now + 1.5);            
+       // } 
+            //F major arpeggio
+            // synth.triggerAttack("F4", now);
+            // synth.triggerRelease("F4", now + 0.5);
+            // synth.triggerAttack("A4", now + 0.5);
+            // synth.triggerRelease("A4", now + 1);
+            // synth.triggerAttack("C4", now + 1);
+            // synth.triggerRelease(C4", now + 1.5); 
 
-        //playing chords/releasing chords
-        //synth.triggerRelease(["C4", "E4", "G4"], now + 1.5);
+            //G major arpeggio
+            // synth.triggerAttack("G", now);
+            // synth.triggerRelease("F4", now + 0.5);
+            // synth.triggerAttack("A4", now + 0.5);
+            // synth.triggerRelease("A4", now + 1);
+            // synth.triggerAttack("C4", now + 1);
+            // synth.triggerRelease(C4", now + 1.5); 
+
+
+            //Db major arpeggio
+            // synth.triggerAttack("Db4", now);
+            // synth.triggerRelease("Db4", now + 0.5);
+            // synth.triggerAttack("F4", now + 0.5);
+            // synth.triggerRelease("F4", now + 1);
+            // synth.triggerAttack("Ab4", now + 1);
+            // synth.triggerRelease(Ab4", now + 1.5); 
+
+            //G major arpeggio
+            // synth.triggerAttack("G4", now);
+            // synth.triggerRelease("G4", now + 0.5);
+            // synth.triggerAttack("B4", now + 0.5);
+            // synth.triggerRelease("B4", now + 1);
+            // synth.triggerAttack("D4", now + 1);
+            // synth.triggerRelease(D4", now + 1.5); 
+
+            //Cminor arpeggio
+            // synth.triggerAttack("C4", now);
+            // synth.triggerRelease("C4", now + 0.5);
+            // synth.triggerAttack("Eb4", now + 0.5);
+            // synth.triggerRelease("Eb4", now + 1);
+            // synth.triggerAttack("G4", now + 1);
+            // synth.triggerRelease("G4", now + 1.5); 
+
+            //D# minor arpeggio
+            // synth.triggerAttack("D#4", now);
+            // synth.triggerRelease("D#4", now + 0.5);
+            // synth.triggerAttack("F#4", now + 0.5);
+            // synth.triggerRelease("F#4", now + 1);
+            // synth.triggerAttack("A#4", now + 1);
+            // synth.triggerRelease("A#4", now + 1.5); 
+            
+
+            //E minor arpeggio
+            // synth.triggerAttack("E4", now);
+            // synth.triggerRelease("E4", now + 0.5);
+            // synth.triggerAttack("G4", now + 0.5);
+            // synth.triggerRelease("G4", now + 1);
+            // synth.triggerAttack("B4", now + 1);
+            // synth.triggerRelease("B4", now + 1.5); 
+            
+            //A minor arpeggio
+            // synth.triggerAttack("A4", now);
+            // synth.triggerRelease("A4", now + 0.5);
+            // synth.triggerAttack("C4", now + 0.5);
+            // synth.triggerRelease("C4", now + 1);
+            // synth.triggerAttack("E4", now + 1);
+            // synth.triggerRelease("E", now + 1.5); 
+        
+
+
         j++;
     }
 
-
+  
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -196,10 +369,9 @@
       
 
     async function changePos() {
-        board.move('e2-e4')
+       // board.move('e2-e4')
         for(let i=0;i<moves.length;i++){
-            //setTimeout(() => ( ,2000);
-            //setInterval(function sleep(){ for(var i=0;i<moves.length;i++){  board.move(moves[i])}  }, 3000);
+
 
             await sleep(2000);
             board.move(moves[i])
