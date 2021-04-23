@@ -46,6 +46,15 @@ def get_games_no_opponent(name, year, month):
                 if str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-g1':
                     moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                     moves_list.append('h1-f1')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-c1':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('a1-d1')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g1':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('h8-f8')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-c8':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('a8-d8')
                 else:
                     moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                 info = engine.analyse(board, chess.engine.Limit(time=0.005))
