@@ -43,7 +43,7 @@ def get_games_no_opponent(name, year, month):
             colors = {}
             for move in game.mainline_moves():
                 board.push(move)
-                if move == 'e1-g1':
+                if str(move) == 'e1-g1':
                     moves_list.append(move)
                     moves_list.append('h1-f1')
                 else:
