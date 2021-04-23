@@ -49,7 +49,7 @@ def get_games_no_opponent(name, year, month):
                 elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-c1':
                     moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                     moves_list.append('a1-d1')
-                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g1':
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g8':
                     moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                     moves_list.append('h8-f8')
                 elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-c8':
