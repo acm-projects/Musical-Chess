@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+
+          .button1 {font-size: 18px;}
+
+    </style>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,7 +34,7 @@
             crossorigin="anonymous"></script>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-</head>2
+</head>
 <p id="date" ></p>
 <body style="background-color: #494747; color: white;">
 <p id="test" >test</p>
@@ -27,14 +44,16 @@
 		</div>
 		<div class="col-md-7">
             <form action="">
+                
                 <input id="username" type="text" placeholder="Your chess.com username">
                 Month: <input id="month" type="number" min="1" max="12" placeholder="1">
                 Year: <input id="year" type="number" min="2016" max="2021" placeholder="2021">
-                <input type="button" value="Get Games" onclick="api_call()">
+                <input class="button button1" type="button" value="Get Games" onclick="api_call()">
             </form>
 			<div id="board" style="width: 70%; height: 70%"></div>
-            <button id="changepos" onclick="changePos()">Change board position</button>
+            <button class ="button button1" id="changepos" onclick="changePos()">Change board position</button>
 		</div>
+        
 		<div class="col-md-3">
             <!-- todo: add game info via api call to these cards -->
             <h3>Games: </h3>
@@ -149,13 +168,13 @@
 			<div class="card text-white bg-info">
                 <!--Title-->
 				<h5 class="card-header" >
-					Game SElect:
+					Game Select:
 				</h5>
 
 				<div class="card-body" >
                     <form action="">
                         <input id="gameSelect" type="text" placeholder="Enter game number 1-4">
-                        <input type="button" value="Get Games" onclick="game_Chose()">
+                        <input class="button button1" type="button" value="Generate Music" onclick="game_Chose()">
                     </form>
 				</div>
 
