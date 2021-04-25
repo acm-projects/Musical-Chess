@@ -17,7 +17,7 @@
             crossorigin="anonymous"></script>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-</head>
+</head>2
 <p id="date" ></p>
 <body style="background-color: #494747; color: white;">
 <p id="test" >test</p>
@@ -292,20 +292,89 @@
             scores = ((scores/4) | 0);
             // I ii III IV V vi vii/vii7
             if(scores > 0){
-                // I V vi IV C
-                music.push(["C4", "E4" ,"G4"]);
-                music.push(["G4", "B4" ,"D5"]);
-                music.push(["A4", "C5" ,"E5"]);
-                music.push(["F3", "Ab3" ,"C4"]);
-                console.log(music.length);
-            } else {
-                // i VI III VII C minor
-                music.push(["C4", "Eb4" ,"G4"]);
-                music.push(["Ab3", "Cb4" ,"Eb4"]);
-                music.push(["Eb4", "G4" ,"Bb4"]);
-                music.push(["Bb3", "D4" ,"F4"]);
-                console.log(music.length);
+                var a = Math.floor(Math.random() * 4)
+
+
+                switch(a){
+                    case a=0:
+                        // I V vi IV C Major
+                        music.push(["C4", "E4" ,"G4"]);
+                        music.push(["G4", "B4" ,"D5"]);
+                        music.push(["A4", "C5" ,"E5"]);
+                        music.push(["F3", "Ab3" ,"C4"]);
+                        console.log(music.length);
+                    break;
+                    case a=1:
+                        // I V IV V
+                        music.push(["C4", "E4" ,"G4"]);
+                        music.push(["G4", "B4" ,"D5"]);
+                        music.push(["F4", "A4" ,"C5"]);
+                        music.push(["G4", "B4" ,"D5"]);
+                        console.log(music.length);
+                    break;
+                        
+                    case a=2:
+                        // I IV I (add octave) V
+                        music.push(["C4", "E4" ,"G4"]);
+                        music.push(["F4", "A4" ,"C5"]);
+                        music.push(["C5", "E5" ,"C5"]);
+                        music.push(["G4", "B4" ,"D5"]);
+                        console.log(music.length);
+
+                    break;
+                    case a=3:
+                        // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                        music.push(["C4", "E4" ,"G4"]);
+                        music.push(["G4", "B4" ,"D5"]);
+                        music.push(["G4", "B4" ,"D5", "F5"]);
+                        music.push(["E4", "G4" ,"C5", "E5"]);
+                        console.log(music.length);
+                    break;
+
+
+                }
                 
+            } else {
+                var a = Math.floor(Math.random() * 4)
+
+
+                switch(a){
+                    case a=0:
+                        // i VI III VII C minor
+                        music.push(["C4", "Eb4" ,"G4"]);
+                        music.push(["Ab3", "Cb4" ,"Eb4"]);
+                        music.push(["Eb4", "G4" ,"Bb4"]);
+                        music.push(["Bb3", "D4" ,"F4"]);
+                        console.log(music.length);
+                
+                    break;
+                    case a=1:
+                        // I V IV V
+                        music.push(["F4", "Ab4" ,"C5"]);
+                        music.push(["Db4", "F4" ,"Ab4"]);
+                        music.push(["Ab4", "C5" ,"Eb5"]);
+                        music.push(["Eb4", "G4" ,"Bb4"]);
+                        console.log(music.length);
+                    break;
+                        
+                    case a=2:
+                        // I IV I (add octave) V
+                        music.push(["Ab4", "Cb4" ,"Eb4"]);
+                        music.push(["Fb4", "Ab4" ,"Cb5"]);
+                        music.push(["Cb4", "Eb4" ,"Gb4"]);
+                        music.push(["Gb4", "Bb4" ,"Db5"]);
+                        console.log(music.length);
+
+                    break;
+                    case a=3:
+                        // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                        music.push(["D4", "F4" ,"A4"]);
+                        music.push(["Bb4", "D4" ,"F4"]);
+                        music.push(["F4", "A4" ,"C5"]);
+                        music.push(["C4", "E4" ,"G5"]);
+                        console.log(music.length);
+                    break;
+                }
             }
             
         }
