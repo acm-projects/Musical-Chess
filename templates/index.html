@@ -37,13 +37,13 @@
 </head>
 <p id="date" ></p>
 <body style="background-color: #494747; color: white;">
-<p id="test" >test</p>
+<p id="test" hidden>test</p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
 		</div >
 		<div class="col-md-7 ">
-            <form class ="px-3 mb-2 bg-primary text-dark" action="">
+            <form action="">
                 
                 <input id="username" type="text" placeholder="Your chess.com username">
                 Month: <input id="month" type="number" min="1" max="12" placeholder="1">
@@ -63,6 +63,10 @@
 				<h5 class="card-header" id="opponent1">
 					Game 1: 
 				</h5>
+                <div class="card-body" id="userColor_1">
+					<p class="card-text">
+					</p>
+				</div>
 
 
 				<div class="card-body" id="winner1">
@@ -91,6 +95,11 @@
                 <h5 class="card-header" id="opponent2">
 					Game2:
 				</h5>
+                <div class="card-body" id="userColor_2">
+					<p class="card-text">
+					</p>
+				</div>
+
 				<div class="card-body" id="winner2">
 					<p class="card-text">
 					</p>
@@ -116,6 +125,10 @@
 				<h5 class="card-header" id="opponent3">
 					Game 3:
 				</h5>
+                <div class="card-body" id="userColor_3">
+					<p class="card-text">
+					</p>
+				</div>
 
 				<div class="card-body" id="winner3">
 					<p class="card-text">
@@ -143,6 +156,10 @@
 				<h5 class="card-header" id="opponent4">
 					Game 4:
 				</h5>
+                <div class="card-body" id="userColor_4">
+					<p class="card-text">
+					</p>
+				</div>
 
 				<div class="card-body" id="winner4">
 					<p class="card-text">
@@ -152,7 +169,7 @@
 
 				<div class="card-body" id="date5">
 					<p class="card-text">
-						Card content
+						
 					</p>
 				</div>
                 <div class="card-body" id="moves_4" hidden>
@@ -188,8 +205,8 @@
 <script>
 
     
-    async function load_data(username, month) {
-        await fetch('http://localhost:5000/api/chess/' + username + '/2021/' + month)
+    async function load_data(username, month, year) {
+        await fetch('http://localhost:5000/api/chess/' + username + '/' + year+ '/' + month)
             .then(response => response.json())
             .then(data =>
                 document.getElementById('test').innerHTML=JSON.stringify(data));
@@ -201,17 +218,31 @@
     function api_call() {
         var username = document.getElementById('username').value;
         var month = document.getElementById('month').value;
-        load_data(username, month)
+        var year = document.getElementById('year').value;
+        load_data(username, month, year)
         
     }
 
     function after_load_data() {
         const RESULT = JSON.parse(document.getElementById('test').innerHTML);
         var k=1;
+        
         //opponents name, Winner, and date
         for (const property in RESULT) {
 
-    
+                var username2 = `${property}: ${RESULT[property].name}`;
+                username2 = username2.substring(3);
+                console.log(username2);
+
+
+                var userColor = `${property}: ${RESULT[property].colors.name}`;
+                userColor = userColor.substring(3);
+                console.log(userColor);
+                var uCol = username2+ ': ' + userColor; 
+                console.log(uCol);
+                document.getElementById(`userColor_${k}`).innerHTML=uCol;
+
+
                 //gets winner
                 //console.log(`${property}: ${RESULT[property].winner}`);
                 var winner = `${property}: ${RESULT[property].winner}`;
@@ -229,6 +260,10 @@
                // console.log(opponent);
                 document.getElementById(`opponent${k}`).innerHTML=opponent;
                 
+
+
+
+
                 //gets date
                 //console.log(`${property}: ${RESULT[property].day}`);
                 var day = `${property}: ${RESULT[property].day}`;
@@ -248,7 +283,7 @@
                // console.log(year);
         
                 // //creates date
-                var date2 = 'date: '+month2+'/'+day+'/'+year;
+                var date2 = 'Date: '+month2+'/'+day+'/'+year;
                // console.log(date2)
                 document.getElementById(`date${k+1}`).innerHTML = date2;
 
@@ -270,7 +305,7 @@
                // console.log(scores);
                 document.getElementById(`stockfish_${k}`).innerHTML=scores; 
              
-            if(k==4)
+            if(k===4)
                 break;
             
             k++;
@@ -295,7 +330,7 @@
         //console.log(typeof(moves))
         moves = document.getElementById(`moves_${number}`).innerHTML.split(',');
 
-        console.log(moves);
+        //console.log(moves);
 
         stockfish = document.getElementById(`stockfish_${number}`).innerHTML.split(',');
 
@@ -305,7 +340,7 @@
     function musicGeneration(){
         var remainder = stockfish.length % 4;
         var numLoop = ((stockfish.length/4) | 0); // Double to int in javascript is kinda gay
-        console.log(`Length of stockfish ${stockfish.length} numLoop ${numLoop} remainder ${remainder}`)
+        //console.log(`Length of stockfish ${stockfish.length} numLoop ${numLoop} remainder ${remainder}`)
         for(var i=0, x=0 ;x<numLoop;i+=4,x+=1){
             var scores = stockfish[i] + stockfish[i+1] +stockfish[i+2] +stockfish[i+3] 
             scores = ((scores/4) | 0);
@@ -321,7 +356,7 @@
                         music.push(["G4", "B4" ,"D5"]);
                         music.push(["A4", "C5" ,"E5"]);
                         music.push(["F3", "Ab3" ,"C4"]);
-                        console.log(music.length);
+                      
                     break;
                     case a=1:
                         // I V IV V
@@ -329,7 +364,7 @@
                         music.push(["G4", "B4" ,"D5"]);
                         music.push(["F4", "A4" ,"C5"]);
                         music.push(["G4", "B4" ,"D5"]);
-                        console.log(music.length);
+                        
                     break;
                         
                     case a=2:
@@ -338,7 +373,7 @@
                         music.push(["F4", "A4" ,"C5"]);
                         music.push(["C5", "E5" ,"C5"]);
                         music.push(["G4", "B4" ,"D5"]);
-                        console.log(music.length);
+                        
 
                     break;
                     case a=3:
@@ -347,7 +382,7 @@
                         music.push(["G4", "B4" ,"D5"]);
                         music.push(["G4", "B4" ,"D5", "F5"]);
                         music.push(["E4", "G4" ,"C5", "E5"]);
-                        console.log(music.length);
+                      
                     break;
 
 
@@ -364,7 +399,7 @@
                         music.push(["Ab3", "Cb4" ,"Eb4"]);
                         music.push(["Eb4", "G4" ,"Bb4"]);
                         music.push(["Bb3", "D4" ,"F4"]);
-                        console.log(music.length);
+                      
                 
                     break;
                     case a=1:
@@ -373,7 +408,7 @@
                         music.push(["Db4", "F4" ,"Ab4"]);
                         music.push(["Ab4", "C5" ,"Eb5"]);
                         music.push(["Eb4", "G4" ,"Bb4"]);
-                        console.log(music.length);
+                        
                     break;
                         
                     case a=2:
@@ -382,7 +417,7 @@
                         music.push(["Fb4", "Ab4" ,"Cb5"]);
                         music.push(["Cb4", "Eb4" ,"Gb4"]);
                         music.push(["Gb4", "Bb4" ,"Db5"]);
-                        console.log(music.length);
+                        
 
                     break;
                     case a=3:
@@ -391,7 +426,7 @@
                         music.push(["Bb4", "D4" ,"F4"]);
                         music.push(["F4", "A4" ,"C5"]);
                         music.push(["C4", "E4" ,"G5"]);
-                        console.log(music.length);
+                        
                     break;
                 }
             }
@@ -401,10 +436,10 @@
         var start = numLoop * 4;
         for(var j=0;j<remainder;j++){
             //lastScores+=stockfish[start+j];
-            if(j==0){
+            if(j===0){
                 music.push(["G4", "B4", "D5"]); //V
             }
-            if(j==1){
+            if(j===1){
                 music.push(["C4", "E4", "G4"]); //I
             } else {
                 music.push(["C4", "E4", "G4"]); //I
@@ -412,10 +447,7 @@
             
         }
         
-        for(var z=0;z< music.length;z++){
-            console.log(music[z][0])
-            console.log(z)
-        }
+
     }
     var j=0
     function test() {
@@ -424,8 +456,7 @@
         const synth = new Tone.PolySynth(Tone.Synth).toDestination();
         const now = Tone.now()
 
-        console.log(typeof(music))
-        console.log(typeof(music[j]))
+        
         synth.triggerAttack(music[j], now);
         synth.triggerRelease(music[j], now+1);
 
