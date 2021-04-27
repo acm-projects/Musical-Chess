@@ -6,6 +6,14 @@ from flask import Flask, jsonify, after_this_request, request
 from flask import render_template
 from flask_cors import CORS
 
+import lichess.api
+import lichess.pgn
+import re
+import requests
+from lichess.format import SINGLE_PGN
+from datetime import datetime
+
+
 app = Flask(__name__)
 CORS(app)
 
@@ -133,24 +141,116 @@ def get_games(name, year, month, opponent):
 
 @app.route('/api/lichess/<name>/<year>/<month>/')
 def get_games_li_no_opponent(name, year, month):
-    # midnight first day  ->  #midnight last day month into timestamped seconds format
-    first = datetime.strptime(f'01.{month}.{year} 01:00:00,76',
-                              '%d.%m.%Y %H:%M:%S,%f')
-    last = datetime.strptime(f'30.{month}.{year} 12:00:00,76',
-                             '%d.%m.%Y %H:%M:%S,%f')
-    first_stamp = first.timestamp() * 1000
-    last_stamp = last.timestamp() * 1000
+        api_result = {}
+        #midnight first day  ->  #midnight last day month into timestamped seconds format 
+        first = datetime.strptime(f'01.{month}.{year} 01:00:00,76',
+                                '%d.%m.%Y %H:%M:%S,%f')                      
+        last = datetime.strptime(f'28.{month}.{year} 12:00:00,76',
+                                '%d.%m.%Y %H:%M:%S,%f')
+        first_stamp = first.timestamp() * 1000
+        last_stamp = last.timestamp() * 1000
+        #lichess api method only takes it in int format
+        first_stamp = int(first_stamp)
+        last_stamp = int(last_stamp)
+        url = f"https://www.lichess.org/api/games/user/{name}"
+        
+        request = requests.get(
+            url,
+            params={"since":first_stamp , "until":last_stamp,  "opening":"true"},
+            headers={"Accept": "application/x-chess-pgn"}
+        )
 
-    url = f"https://www.lichess.org/api/games/user/{user}"
+        games_raw = request.content.decode("utf-8")
 
-    request = requests.get(
-        url,
-        params={"since": first_stamp, "until": last_stamp, "opening": "true"},
-        headers={"Accept": "application/x-chess-pgn"}
-    )
+        # # #   with -> Will make sure the file closes
+       # with open(f'{user}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
+        #    f.write(games_raw)
 
-    games_raw = request.content.decode("utf-8")
-    return None
+        # #takes in username and last 20 games
+        # user = input('Enter your lichess username: ')
+        # info = lichess.api.user(user)
+        # pgn = lichess.api.user_games(user, max=20, format=SINGLE_PGN, opening = 'true')  # max param is for number of games, don't touch anything else on this line
+        # print()
+
+        #make sure user only enters a number between 1 and 20
+        #game_Num = input('Enter which game would you like: ')
+
+        #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
+        pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
+
+        # prints out each game in the pgn_store array(debug)
+        # for game in pgn_store:
+        #    print(game)
+        #    print('-------------------------------------------------')
+
+        # #   with -> Will make sure the file closes
+        with open(f'{name}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
+            f.write(games_raw)
+
+        
+        # for i in range(0, len(pgn_store)):
+        #     #pgn_ = io.StringIO(pgn_store[(int(game_Num) - 1) * 2]) 
+            
+        #     moves_list = []
+        #     scores = []
+        #     colors = {}
+
+        #     #reads in a game
+        #     game = chess.pgn.read_game(io.StringIO(pgn_store[i]))
+        #     #game = chess.pgn.read_game(pgn_)
+
+        #     board = game.board()
+        
+        #      # this prints a board for every position in the game.
+        #     for move in game.mainline_moves():
+        #         if str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-g1':
+        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+        #             moves_list.append('h1-f1')
+        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-c1':
+        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+        #             moves_list.append('a1-d1')
+        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g8':
+        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+        #             moves_list.append('h8-f8')
+        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-c8':
+        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+        #             moves_list.append('a8-d8')
+        #         else:
+        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                      
+        #         board.push(move)
+        #         info = engine.analyse(board, chess.engine.Limit(time=0.01))
+        #         scores.append(info['score'].white().score())
+        #         date = (str(game.headers["Date"])).split('.')  # year, month, day
+        #         yearx = date[0]
+        #         monthx = date[1]
+        #         day = date[2]
+        #         #end_position = game.headers['CurrentPosition']
+        #         result = game.headers['Termination']
+
+        #         if result == 'game':
+        #             result = 'abandoned'
+        #         if game.headers["White"].lower() == name.lower():
+        #             enemy_username = game.headers["Black"]
+        #             colors['name'] = 'White'
+        #             elo = game.headers["WhiteElo"]
+        #             colors['opponent'] = 'Black'
+        #         else:
+        #             enemy_username = game.headers["White"]
+        #             colors['name'] = 'Black'
+        #             elo = game.headers["BlackElo"]
+        #             colors['opponent'] = 'White'
+        #         winner = game.headers["Termination"].split(' ')[0]
+        #         api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
+        #                         'result': result, 'winner': winner, 'moves': moves_list,
+        #                         'scores': scores,
+        #                         'colors': colors, 'elo': elo}
+        #     else:
+        #         pass
+        return jsonify(api_result)
+
+
+        
 
 
 @app.route('/api/chess/<name>/<year>/<month>/<opponent>')

@@ -1,0 +1,38 @@
+[Event "Casual Rapid game"]
+[Site "https://lichess.org/Zcdp945W"]
+[Date "2021.03.15"]
+[White "Khreate"]
+[Black "testinggame12"]
+[Result "0-1"]
+[UTCDate "2021.03.15"]
+[UTCTime "01:46:26"]
+[WhiteElo "1152"]
+[BlackElo "1500"]
+[Variant "Standard"]
+[TimeControl "600+3"]
+[ECO "B00"]
+[Opening "Nimzowitsch Defense: Franco-Nimzowitsch Variation"]
+[Termination "Normal"]
+
+1. e4 e6 2. Nf3 Nc6 3. Nc3 Nf6 4. d4 d5 5. exd5 Nxd5 6. Nxd5 Qxd5 7. b3 Bd7 8. Bc4 Qe4+ 9. Be3 Bb4+ 10. c3 Bxc3+ 11. Nd2 Bxd2+ 12. Qxd2 O-O-O 13. Bd3 Qxg2 14. O-O-O Qd5 15. Rhg1 g6 16. Bg5 Rde8 17. Bf6 Rhg8 18. Rg5 Qd6 19. Be5 Nxe5 20. dxe5 Qe7 21. Rg4 f5 22. Ra4 Bxa4 23. bxa4 Rd8 24. Qa5 a6 25. Qc3 Qg5+ 26. Rd2 Qg1+ 27. Rd1 Qxf2 28. Rd2 Qg1+ 29. Kc2 b6 30. Kb2 Qc5 31. Rc2 Qxc3+ 32. Rxc3 Kb8 33. Bxa6 Rd2+ 34. Kc1 Rxa2 35. Bb5 Rxh2 0-1
+
+
+[Event "Casual Rapid game"]
+[Site "https://lichess.org/f02u0FwR"]
+[Date "2021.03.15"]
+[White "Khreate"]
+[Black "Anonymous"]
+[Result "0-1"]
+[UTCDate "2021.03.15"]
+[UTCTime "01:21:57"]
+[WhiteElo "1152"]
+[BlackElo "?"]
+[Variant "Standard"]
+[TimeControl "600+3"]
+[ECO "B11"]
+[Opening "Caro-Kann Defense: Two Knights Attack, Mindeno Variation, Retreat Line"]
+[Termination "Normal"]
+
+1. e4 c6 2. Nf3 d5 3. Nc3 Bg4 4. h3 Bh5 5. Be2 e6 6. d4 dxe4 7. Nxe4 Nd7 8. Nfg5 Bg6 9. Bf4 h6 10. Nxe6 fxe6 11. Nd2 Ngf6 12. O-O Qb6 13. Nc4 Qd8 14. Bd6 Nb6 15. Bxf8 Rxf8 16. Ne5 Bh7 17. Bh5+ Nxh5 18. Qxh5+ Ke7 19. Ng6+ Bxg6 20. Qxg6 Qxd4 21. Rae1 Qf6 22. Qh5 Rad8 23. Qe2 Nd5 24. g3 Nc7 25. c3 Qg5 26. h4 Qf5 27. f3 Rd3 28. g4 Qd5 29. Rd1 Rxd1 30. Rxd1 Qxf3 31. Qxf3 Rxf3 32. Kg2 Re3 33. Rf1 Re2+ 34. Kf3 Rxb2 35. Kf4 Rxa2 36. g5 hxg5+ 37. Kxg5 a5 38. h5 Rg2+ 39. Kh4 a4 40. Ra1 b5 41. Kh3 Rc2 42. Rg1 Kf7 43. Kg4 a3 44. Rf1+ Ke7 45. Ra1 a2 46. Rg1 Rb2 47. Kf3 Rb1 48. Rxg7+ Kd6 49. h6 a1=Q 50. h7 Rh1 51. Kf4 Qf1+ 52. Kg5 Rg1+ 53. Kh6 Qh3# 0-1
+
+
