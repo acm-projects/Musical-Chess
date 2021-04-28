@@ -41,16 +41,23 @@ def get_games_no_opponent(name, year, month):
     api_result = {}
 
     games_raw = requests.get(f"https://api.chess.com/pub/player/{name}/games/{year}/{month}")
+    count =0
     for i in range(0, len(games_raw.json()['games'])):
-
-        if 'pgn' in games_raw.json()['games'][i]:
+        if count >= 10:
+            break
+        if 'pgn' in games_raw.json()['games'][i] :
+            
             game = chess.pgn.read_game(io.StringIO(games_raw.json()['games'][i]['pgn']))
+            if "Event" not in game.headers:
+                continue
+           
+            count+=1
             board = chess.Board()
             moves_list = []
             scores = []
             colors = {}
             for move in game.mainline_moves():
-                board.push(move)
+                #board.push(move)
                 if str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-g1':
                     moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                     moves_list.append('h1-f1')

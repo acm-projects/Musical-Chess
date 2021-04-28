@@ -37,7 +37,8 @@
 </head>
 <p id="date" ></p>
 <body style="background-color: #494747; color: white;">
-<p id="test" hidden>test</p>
+<p id="test" hidden></p>
+<p id="Elo" hidden></p>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
@@ -208,22 +209,39 @@
 
     
     async function load_data(username, month, year) {
-        await fetch('http://localhost:5000/api/chess/' + username + '/' + year+ '/' + month)
-            .then(response => response.json())
-            .then(data =>
-                document.getElementById('test').innerHTML=JSON.stringify(data));
+        try {
+            await fetch('http://localhost:5000/api/chess/' + username + year + month)
+                .then(response => response.json())
+                .then(data =>
+                    document.getElementById('test').innerHTML = JSON.stringify(data));
 
-        after_load_data();
+            after_load_data();
+
+            }catch
+            {
+                alert('This username does not exist.')
+            }
+
         
     }
 
     async function li_load_data(username, month, year) {
-        await fetch('http://localhost:5000/api/lichess/' + username + '/' + year+ '/' + month)
+
+        try {
+            await fetch('http://localhost:5000/api/lichess/' + username + '/' + year+ '/' + month)
             .then(response => response.json())
             .then(data =>
                 document.getElementById('test').innerHTML=JSON.stringify(data));
 
-        after_load_data();
+            after_load_data();
+
+            }catch
+            {
+                alert('This username does not exist.')
+            }
+
+
+      
         
     }
 
@@ -252,14 +270,22 @@
 
                 var username2 = `${property}: ${RESULT[property].name}`;
                 username2 = username2.substring(3);
-                console.log(username2);
+                //console.log(username2);
+
+
+
+                var elo = `${property}: ${RESULT[property].elo}`;
+                elo = elo.substring(3);
+                console.log(elo);
+                document.getElementById('Elo').innerHTML=elo;
+
 
 
                 var userColor = `${property}: ${RESULT[property].colors.name}`;
                 userColor = userColor.substring(3);
-                console.log(userColor);
+                //console.log(userColor);
                 var uCol = username2+ ': ' + userColor; 
-                console.log(uCol);
+                //console.log(uCol);
                 document.getElementById(`userColor_${k}`).innerHTML=uCol;
 
 
@@ -340,17 +366,13 @@
     var stockfish;
     var music= [];
     function game_Chose(){
-        //const chosen = document.getElementById('gameSelect').value
-        //console.log(document.getElementById(`moves_${chosen}`).value);
+
         var number = document.getElementById(`gameSelect`).value;
-        console.log(number);
         console.log(document.getElementById(`moves_${number}`).innerHTML);
-       // moves = document.getElementById(`moves_${chosen}`).value;
-        //console.log("type of below")
-        //console.log(typeof(moves))
+ 
         moves = document.getElementById(`moves_${number}`).innerHTML.split(',');
 
-        //console.log(moves);
+ 
 
         stockfish = document.getElementById(`stockfish_${number}`).innerHTML.split(',');
 
@@ -359,113 +381,228 @@
 
     function musicGeneration(){
         var remainder = stockfish.length % 4;
-        var numLoop = ((stockfish.length/4) | 0); // Double to int in javascript is kinda gay
+        var numLoop = ((stockfish.length/4) | 0); // Double to int in javascript is kinda weird
         //console.log(`Length of stockfish ${stockfish.length} numLoop ${numLoop} remainder ${remainder}`)
-        for(var i=0, x=0 ;x<numLoop;i+=4,x+=1){
-            var scores = stockfish[i] + stockfish[i+1] +stockfish[i+2] +stockfish[i+3] 
-            scores = ((scores/4) | 0);
-            // I ii III IV V vi vii/vii7
-            if(scores > 0){
-                var a = Math.floor(Math.random() * 4)
+        elo = document.getElementById('Elo').innerHTML;
+        elo = parseInt(elo,10)
+        console.log(typeof(elo))
+        if(elo < 1500){
+
+            for(var i=0, x=0 ;x<numLoop;i+=4,x+=1){
+                var scores = stockfish[i] + stockfish[i+1] +stockfish[i+2] +stockfish[i+3] 
+                scores = ((scores/4) | 0);
+                // I ii III IV V vi vii/vii7
+                if(scores > -1){
+                    var a = Math.floor(Math.random() * 4)
 
 
-                switch(a){
-                    case a=0:
-                        // I V vi IV C Major
-                        music.push(["C4", "E4" ,"G4"]);
-                        music.push(["G4", "B4" ,"D5"]);
-                        music.push(["A4", "C5" ,"E5"]);
-                        music.push(["F3", "Ab3" ,"C4"]);
-                      
-                    break;
-                    case a=1:
-                        // I V IV V
-                        music.push(["C4", "E4" ,"G4"]);
-                        music.push(["G4", "B4" ,"D5"]);
-                        music.push(["F4", "A4" ,"C5"]);
-                        music.push(["G4", "B4" ,"D5"]);
+                    switch(a){
+                        case a=0:
+                            // I V vi IV C Major
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["A4", "C5" ,"E5"]);
+                            music.push(["F3", "Ab3" ,"C4"]);
                         
-                    break;
+                        break;
+                        case a=1:
+                            // I V IV V
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            
+                        break;
+                            
+                        case a=2:
+                            // I IV I (add octave) V
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["C5", "E5" ,"C5"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            
+
+                        break;
+                        case a=3:
+                            // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["G4", "B4" ,"D5", "F5"]);
+                            music.push(["E4", "G4" ,"C5", "E5"]);
                         
-                    case a=2:
-                        // I IV I (add octave) V
-                        music.push(["C4", "E4" ,"G4"]);
-                        music.push(["F4", "A4" ,"C5"]);
-                        music.push(["C5", "E5" ,"C5"]);
-                        music.push(["G4", "B4" ,"D5"]);
+                        break;
+
+
+                    }
+                    
+                } else {
+                    var a = Math.floor(Math.random() * 4)
+
+
+                    switch(a){
+                        case a=0:
+                            // i VI III VII C minor
+                            music.push(["C4", "Eb4" ,"G4"]);
+                            music.push(["Ab3", "Cb4" ,"Eb4"]);
+                            music.push(["Eb4", "G4" ,"Bb4"]);
+                            music.push(["Bb3", "D4" ,"F4"]);
                         
+                    
+                        break;
+                        case a=1:
+                            // I V IV V
+                            music.push(["F4", "Ab4" ,"C5"]);
+                            music.push(["Db4", "F4" ,"Ab4"]);
+                            music.push(["Ab4", "C5" ,"Eb5"]);
+                            music.push(["Eb4", "G4" ,"Bb4"]);
+                            
+                        break;
+                            
+                        case a=2:
+                            // I IV I (add octave) V
+                            music.push(["Ab4", "Cb4" ,"Eb4"]);
+                            music.push(["Fb4", "Ab4" ,"Cb5"]);
+                            music.push(["Cb4", "Eb4" ,"Gb4"]);
+                            music.push(["Gb4", "Bb4" ,"Db5"]);
+                            
 
-                    break;
-                    case a=3:
-                        // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
-                        music.push(["C4", "E4" ,"G4"]);
-                        music.push(["G4", "B4" ,"D5"]);
-                        music.push(["G4", "B4" ,"D5", "F5"]);
-                        music.push(["E4", "G4" ,"C5", "E5"]);
-                      
-                    break;
-
-
+                        break;
+                        case a=3:
+                            // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                            music.push(["D4", "F4" ,"A4"]);
+                            music.push(["Bb4", "D4" ,"F4"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["C4", "E4" ,"G5"]);
+                            
+                        break;
+                    }
+                }
+            
+            }
+            var lastScores;
+            var start = numLoop * 4;
+            for(var j=0;j<remainder;j++){
+                //lastScores+=stockfish[start+j];
+                if(j===0){
+                    music.push(["G4", "B4", "D5"]); //V
+                }
+                if(j===1){
+                    music.push(["C4", "E4", "G4"]); //I
+                } else {
+                    music.push(["C4", "E4", "G4"]); //I
                 }
                 
-            } else {
-                var a = Math.floor(Math.random() * 4)
+            }
+        } else {
+            for(var i=0, x=0 ;x<numLoop;i+=4,x+=1){
+                var scores = stockfish[i] + stockfish[i+1] +stockfish[i+2] +stockfish[i+3] 
+                scores = ((scores/4) | 0);
+                // I ii III IV V vi vii/vii7
+                if(scores > 0){
+                    var a = Math.floor(Math.random() * 4)
 
 
-                switch(a){
-                    case a=0:
-                        // i VI III VII C minor
-                        music.push(["C4", "Eb4" ,"G4"]);
-                        music.push(["Ab3", "Cb4" ,"Eb4"]);
-                        music.push(["Eb4", "G4" ,"Bb4"]);
-                        music.push(["Bb3", "D4" ,"F4"]);
-                      
-                
-                    break;
-                    case a=1:
-                        // I V IV V
-                        music.push(["F4", "Ab4" ,"C5"]);
-                        music.push(["Db4", "F4" ,"Ab4"]);
-                        music.push(["Ab4", "C5" ,"Eb5"]);
-                        music.push(["Eb4", "G4" ,"Bb4"]);
+                    switch(a){
+                        case a=0:
+                            // I V vi IV C Major
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["A4", "C5" ,"E5"]);
+                            music.push(["F3", "Ab3" ,"C4"]);
                         
-                    break;
-                        
-                    case a=2:
-                        // I IV I (add octave) V
-                        music.push(["Ab4", "Cb4" ,"Eb4"]);
-                        music.push(["Fb4", "Ab4" ,"Cb5"]);
-                        music.push(["Cb4", "Eb4" ,"Gb4"]);
-                        music.push(["Gb4", "Bb4" ,"Db5"]);
-                        
+                        break;
+                        case a=1:
+                            // I V IV V
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            
+                        break;
+                            
+                        case a=2:
+                            // I IV I (add octave) V
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["C5", "E5" ,"C5"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            
 
-                    break;
-                    case a=3:
-                        // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
-                        music.push(["D4", "F4" ,"A4"]);
-                        music.push(["Bb4", "D4" ,"F4"]);
-                        music.push(["F4", "A4" ,"C5"]);
-                        music.push(["C4", "E4" ,"G5"]);
+                        break;
+                        case a=3:
+                            // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                            music.push(["C4", "E4" ,"G4"]);
+                            music.push(["G4", "B4" ,"D5"]);
+                            music.push(["G4", "B4" ,"D5", "F5"]);
+                            music.push(["E4", "G4" ,"C5", "E5"]);
                         
-                    break;
+                        break;
+
+
+                    }
+                    
+                } else {
+                    var a = Math.floor(Math.random() * 4)
+
+
+                    switch(a){
+                        case a=0:
+                            // i VI III VII C minor
+                            music.push(["C4", "Eb4" ,"G4"]);
+                            music.push(["Ab3", "Cb4" ,"Eb4"]);
+                            music.push(["Eb4", "G4" ,"Bb4"]);
+                            music.push(["Bb3", "D4" ,"F4"]);
+                        
+                    
+                        break;
+                        case a=1:
+                            // I V IV V
+                            music.push(["F4", "Ab4" ,"C5"]);
+                            music.push(["Db4", "F4" ,"Ab4"]);
+                            music.push(["Ab4", "C5" ,"Eb5"]);
+                            music.push(["Eb4", "G4" ,"Bb4"]);
+                            
+                        break;
+                            
+                        case a=2:
+                            // I IV I (add octave) V
+                            music.push(["Ab4", "Cb4" ,"Eb4"]);
+                            music.push(["Fb4", "Ab4" ,"Cb5"]);
+                            music.push(["Cb4", "Eb4" ,"Gb4"]);
+                            music.push(["Gb4", "Bb4" ,"Db5"]);
+                            
+
+                        break;
+                        case a=3:
+                            // I (3 notes) V (3 notes) V7 (Dominant 7th) I (1st inversions) E G C E
+                            music.push(["D4", "F4" ,"A4"]);
+                            music.push(["Bb4", "D4" ,"F4"]);
+                            music.push(["F4", "A4" ,"C5"]);
+                            music.push(["C4", "E4" ,"G5"]);
+                            
+                        break;
+                    }
                 }
-            }
             
-        }
-        var lastScores;
-        var start = numLoop * 4;
-        for(var j=0;j<remainder;j++){
-            //lastScores+=stockfish[start+j];
-            if(j===0){
-                music.push(["G4", "B4", "D5"]); //V
             }
-            if(j===1){
-                music.push(["C4", "E4", "G4"]); //I
-            } else {
-                music.push(["C4", "E4", "G4"]); //I
+            var lastScores;
+            var start = numLoop * 4;
+            for(var j=0;j<remainder;j++){
+                //lastScores+=stockfish[start+j];
+                if(j===0){
+                    music.push(["G4", "B4", "D5"]); //V
+                }
+                if(j===1){
+                    music.push(["C4", "E4", "G4"]); //I
+                } else {
+                    music.push(["C4", "E4", "G4"]); //I
+                }
+                
             }
-            
         }
+
+
+
         
 
     }
