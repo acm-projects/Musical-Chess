@@ -210,7 +210,7 @@
     
     async function load_data(username, month, year) {
         try {
-            await fetch('http://localhost:5000/api/chess/' + username + year + month)
+            await fetch('http://localhost:5000/api/chess/' + username + '/'+ year+'/' + month)
                 .then(response => response.json())
                 .then(data =>
                     document.getElementById('test').innerHTML = JSON.stringify(data));
