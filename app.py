@@ -162,81 +162,83 @@ def get_games_li_no_opponent(name, year, month):
 
         games_raw = request.content.decode("utf-8")
 
-        
-
-      
-
         # #   with -> Will make sure the file closes
         with open(f'{name}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
             f.write(games_raw)
 
         #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
-            pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
+        pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
 
-              # prints out each game in the pgn_store array(debug)
-        # for game in pgn_store:
-        #    print(game)
-        #    print('-------------------------------------------------')
-        
-        # for i in range(0, len(pgn_store)):
-        #     #pgn_ = io.StringIO(pgn_store[(int(game_Num) - 1) * 2]) 
+        #new pgn
+        pgn_arr = {}
+        for i in range(0, len(pgn_store)):
+            if ((i+1) *2) >= len(pgn_store): 
+                break
+            pgn_arr[i] = pgn_store[i*2]
             
-        #     moves_list = []
-        #     scores = []
-        #     colors = {}
 
-        #     #reads in a game
-        #     game = chess.pgn.read_game(io.StringIO(pgn_store[i]))
-        #     #game = chess.pgn.read_game(pgn_)
+        # # prints out each game in the pgn_store array(debug)
 
-        #     board = game.board()
-        
-        #      # this prints a board for every position in the game.
-        #     for move in game.mainline_moves():
-        #         if str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-g1':
-        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
-        #             moves_list.append('h1-f1')
-        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-c1':
-        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
-        #             moves_list.append('a1-d1')
-        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g8':
-        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
-        #             moves_list.append('h8-f8')
-        #         elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-c8':
-        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
-        #             moves_list.append('a8-d8')
-        #         else:
-        #             moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+        for i in pgn_arr:
+
+            moves_list = []
+            scores = []
+            colors = {}
+            winner ={}
+            #reads in a game
+            game = chess.pgn.read_game(io.StringIO(pgn_arr[i]))
+            #game = chess.pgn.read_game(pgn_)
+
+            board = game.board()
+             # this prints a board for every position in the game.
+            for move in game.mainline_moves():
+                if str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-g1':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('h1-f1')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e1-c1':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('a1-d1')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-g8':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('h8-f8')
+                elif str(move)[0] + str(move)[1] + '-' + str(move)[2:] == 'e8-c8':
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
+                    moves_list.append('a8-d8')
+                else:
+                    moves_list.append(str(move)[0] + str(move)[1] + '-' + str(move)[2:])
                       
-        #         board.push(move)
-        #         info = engine.analyse(board, chess.engine.Limit(time=0.01))
-        #         scores.append(info['score'].white().score())
-        #         date = (str(game.headers["Date"])).split('.')  # year, month, day
-        #         yearx = date[0]
-        #         monthx = date[1]
-        #         day = date[2]
-        #         #end_position = game.headers['CurrentPosition']
-        #         result = game.headers['Termination']
-
-        #         if result == 'game':
-        #             result = 'abandoned'
-        #         if game.headers["White"].lower() == name.lower():
-        #             enemy_username = game.headers["Black"]
-        #             colors['name'] = 'White'
-        #             elo = game.headers["WhiteElo"]
-        #             colors['opponent'] = 'Black'
-        #         else:
-        #             enemy_username = game.headers["White"]
-        #             colors['name'] = 'Black'
-        #             elo = game.headers["BlackElo"]
-        #             colors['opponent'] = 'White'
-        #         winner = game.headers["Termination"].split(' ')[0]
-        #         api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
-        #                         'result': result, 'winner': winner, 'moves': moves_list,
-        #                         'scores': scores,
-        #                         'colors': colors, 'elo': elo}
-        #     else:
-        #         pass
+                board.push(move)
+                info = engine.analyse(board, chess.engine.Limit(time=0.01))
+                scores.append(info['score'].white().score())
+                date = (str(game.headers["Date"])).split('.')  # year, month, day
+                yearx = date[0]
+                monthx = date[1]
+                day = date[2]
+                #end_position = game.headers['CurrentPosition']
+                result = game.headers["Result"]
+                winner =""
+                if result == "1-0":
+                     winner = game.headers["White"]
+                if result == "0-1":
+                     winner = game.headers["Black"]
+                      
+                if game.headers["White"].lower() == name.lower():
+                    enemy_username = game.headers["Black"]
+                    colors['name'] = 'White'
+                    elo = game.headers["WhiteElo"]
+                    colors['opponent'] = 'Black'
+                else:
+                    enemy_username = game.headers["White"]
+                    colors['name'] = 'Black'
+                    elo = game.headers["BlackElo"]
+                    colors['opponent'] = 'White'
+                
+                api_result[i] = {'name': name, 'year': yearx, 'month': monthx, 'day': day, 'opponent': enemy_username,
+                                'result': result, 'winner': winner, 'moves': moves_list,
+                                'scores': scores,
+                                'colors': colors, 'elo': elo}
+            else:
+                pass
         return jsonify(api_result)
 
 
