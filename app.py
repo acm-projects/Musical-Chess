@@ -162,31 +162,21 @@ def get_games_li_no_opponent(name, year, month):
 
         games_raw = request.content.decode("utf-8")
 
-        # # #   with -> Will make sure the file closes
-       # with open(f'{user}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
-        #    f.write(games_raw)
+        
 
-        # #takes in username and last 20 games
-        # user = input('Enter your lichess username: ')
-        # info = lichess.api.user(user)
-        # pgn = lichess.api.user_games(user, max=20, format=SINGLE_PGN, opening = 'true')  # max param is for number of games, don't touch anything else on this line
-        # print()
-
-        #make sure user only enters a number between 1 and 20
-        #game_Num = input('Enter which game would you like: ')
-
-        #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
-        pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
-
-        # prints out each game in the pgn_store array(debug)
-        # for game in pgn_store:
-        #    print(game)
-        #    print('-------------------------------------------------')
+      
 
         # #   with -> Will make sure the file closes
         with open(f'{name}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
             f.write(games_raw)
 
+        #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
+            pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
+
+              # prints out each game in the pgn_store array(debug)
+        # for game in pgn_store:
+        #    print(game)
+        #    print('-------------------------------------------------')
         
         # for i in range(0, len(pgn_store)):
         #     #pgn_ = io.StringIO(pgn_store[(int(game_Num) - 1) * 2]) 
