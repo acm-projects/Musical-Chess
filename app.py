@@ -162,10 +162,6 @@ def get_games_li_no_opponent(name, year, month):
 
         games_raw = request.content.decode("utf-8")
 
-        # #   with -> Will make sure the file closes
-        with open(f'{name}.pgn', 'w') as f:  # creates a file with filename last20{user}.pgn, containing all of the pgn's for the max= games
-            f.write(games_raw)
-
         #pgn_store is an array that holds all the games.   r'(1-0|0-1)$' splits everything with 1-0/0-1, but only checks at the end of each line.  
         pgn_store = re.split(r'(1-0|0-1)$',games_raw, flags=re.MULTILINE)
 
