@@ -13,7 +13,7 @@ Our website allows users to import games from their Lichess or Chess.com account
 4) Concurrently play the moves and the music for a chessgame
 5) Simple user interface for ease of use.
 
-# User interface
+# User Interface
 1) Enter a Chess.com or Lichess username, the month and year you want games from, and then hit get games based on which website an account is from. 
 2) After the games are loaded in select the game you want by entering its assigned number.
 3) Hit generate music
