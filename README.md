@@ -7,7 +7,7 @@
 Our website allows users to import games from their Lichess or Chess.com accounts, and then it will generate music based on the moves played out in the game. 
 
 # Project Features
-1) Import games from the Lichess and Chess.com by using their respective APIs.
+1) Import games from popular chess websites Lichess and Chess.com by using their respective APIs.
 2) Analyze board position using stockfish, and then retrieve centipawn loss from each move played in a game.
 3) Generate music based on each moves centipawn loss.
 4) Concurrently play the moves and the music for a chessgame
