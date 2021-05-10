@@ -21,10 +21,6 @@ Our website allows users to import games from their Lichess or Chess.com account
 
 ![image](https://user-images.githubusercontent.com/73033177/117071234-70d5f580-acf4-11eb-8028-b9d8208060fa.png)
 
-# This Branch
-
-This branch contains the API that backend has created in Flask, as well as a template index.html page containing a chessboard.
-
 # To run: 
 
 Make sure Python is installed, clone this repo, then install dependencies via `pip install`. 
